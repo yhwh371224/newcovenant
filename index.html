@@ -111,7 +111,7 @@
         <section class="page-section" id="about">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">새언약교회 역사</h2>
+                    <h2 class="section-heading text-uppercase">새언약교회 이모저모</h2>
                     <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
                 </div>
                 <ul class="timeline">
@@ -119,8 +119,8 @@
                         <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/1.jpg" alt="..." /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4>2009-2011</h4>
-                                <h4 class="subheading">Our Humble Beginnings</h4>
+                                <!-- <h4>2009-2011</h4> -->
+                                <h4 class="subheading">교회찬양팀</h4>
                             </div>
                             <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
                         </div>
@@ -129,8 +129,8 @@
                         <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/2.jpg" alt="..." /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4>March 2011</h4>
-                                <h4 class="subheading">An Agency is Born</h4>
+                                <!-- <h4>March 2011</h4> -->
+                                <h4 class="subheading">성경공부</h4>
                             </div>
                             <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
                         </div>
@@ -139,8 +139,8 @@
                         <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/3.jpg" alt="..." /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4>December 2015</h4>
-                                <h4 class="subheading">Transition to Full Service</h4>
+                                <!-- <h4>December 2015</h4> -->
+                                <h4 class="subheading">뷔페식점심</h4>
                             </div>
                             <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
                         </div>
@@ -149,8 +149,8 @@
                         <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/4.jpg" alt="..." /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4>July 2020</h4>
-                                <h4 class="subheading">Phase Two Expansion</h4>
+                                <!-- <h4>July 2020</h4> -->
+                                <h4 class="subheading">유치부와 학생부</h4>
                             </div>
                             <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
                         </div>
@@ -162,7 +162,7 @@
                                 <br />
                                 Of Our
                                 <br />
-                                Story!
+                                Church!
                             </h4>
                         </div>
                     </li>
@@ -208,15 +208,21 @@
         <footer class="footer" style="background-color: #5a6268; padding-top: 4rem; padding-bottom: 4rem;">
             <div class="container" style="padding-top: 2rem; padding-bottom: 2rem;">                
                 <div class="row align-items-center">
-                    <div class="col-lg-4 text-lg-start" style="color: white;">Contact: 0466 386 584 (담임목사 김곤주)</div>
+                    <div class="col-lg-4 text-lg-start hover-effect" style="color: white;">
+                        <i class="ai-map-pin fs-xl text-muted me-2 pe-1"></i>
+                        <a href="sms:+61466386584">0466 386 584 (담임목사 김곤주)</a></div>
                     <div class="col-lg-4 my-3 my-lg-0">
                         <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-youtube"></i></a>
                         <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                         <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i class="fab fa-google"></i></a>
                     </div>
                     <div class="col-lg-4 text-lg-end">
-                        <a class="link-dark text-decoration-none me-3" href="#!">109 Priam St, Chester Hill</a><br>
-                        <a class="link-dark text-decoration-none" href="#!">email: kkj1515@hotmail.com</a>                        
+                        <a class="link-dark text-decoration-none me-3 hover-effect" 
+                            href="https://www.google.com/maps/search/?api=1&query=109+Priam+St,+Chester+Hill" 
+                            target="_blank">
+                            109 Priam St, Chester Hill
+                        </a>
+                        <a class="link-dark text-decoration-none hover-effect" href="mailto:info@easygoshuttle.com.au">kkj1515@hotmail.com</a>                        
                     </div>
                 </div>
             </div>
@@ -449,4 +455,16 @@
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
     </body>
+    <style>
+        /* 링크 및 버튼 색상 변화 */
+        .hover-effect {
+            color: white; /* 기본 색상 */
+            transition: color 0.3s, background-color 0.3s; /* 부드러운 전환 효과 */
+        }
+    
+        .hover-effect:hover {
+            color: #ffd700; /* 마우스를 올렸을 때 색상 */
+            background-color: rgba(255, 255, 255, 0.2); /* 배경 색상 (버튼인 경우 적용) */
+        }
+    </style>
 </html>
