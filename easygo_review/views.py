@@ -13,7 +13,6 @@ from django.http import JsonResponse
 from .models import Post, Comment
 from .forms import CommentForm, PostForm
 from blog.models import Post as BlogPost
-from blog.tasks import send_notice_email
 from main.settings import RECIPIENT_EMAIL
 
 
@@ -27,7 +26,7 @@ def custom_login_view(request):
             request.session['email'] = post.email
             return redirect('easygo_review:easygo_review')
         else:
-            error = 'This is not the email address used for booking'
+            error = 'This is not the email address in our system'
     return render(request, 'easygo_review/custom_login.html', {'error': error})
 
 
@@ -48,7 +47,7 @@ def get_authenticated_post(request):
 class PostList(ListView):
     model = Post
     template_name = 'easygo_review/post_list.html'
-    paginate_by = 6
+    paginate_by = 7
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(PostList, self).get_context_data(**kwargs)
@@ -103,8 +102,6 @@ class PostCreate(View):
                     form.add_error('rating', 'Rating must be between 1 and 5')
                     return render(request, 'easygo_review/post_form.html', {'form': form, 'form_guide': 'Please post your review'})
                 form.save()
-
-                send_notice_email.delay('sb created review', 'sb created review', RECIPIENT_EMAIL)
 
                 return redirect('/easygo_review/')
         return render(request, 'easygo_review/post_form.html', {'form': form, 'form_guide': 'Please post your review'})
@@ -307,38 +304,3 @@ class CommentDelete(DeleteView):
 def index(request):
     posts = Post.objects.all()
     return render(request, 'easygo_review/index.html', {'posts': posts})
-
-
-def verify_recaptcha(response, version='v2'):
-    if version == 'v2':
-        secret_key = settings.RECAPTCHA_V2_SECRET_KEY
-    elif version == 'v3':
-        secret_key = settings.RECAPTCHA_V3_SECRET_KEY
-    else:
-        return {'success': False, 'error-codes': ['invalid-version']}
-
-    data = {
-        'secret': secret_key,
-        'response': response
-    }
-    r = requests.post('https://www.google.com/recaptcha/api/siteverify', data=data)
-    return r.json()
-
-
-@csrf_exempt
-def recaptcha_verify(request):
-    if request.method == 'POST':
-        data = json.loads(request.body)
-        recaptcha_token = data.get('recaptchaToken')
-        
-        if not recaptcha_token:
-            return JsonResponse({'success': False, 'message': 'No reCAPTCHA token provided'})
-
-        result = verify_recaptcha(recaptcha_token, version='v3')
-        
-        if result.get('success'):
-            return JsonResponse({'success': True})
-        else:
-            return JsonResponse({'success': False, 'message': result.get('error-codes', 'Invalid reCAPTCHA token')})
-    
-    return JsonResponse({'success': False, 'message': 'Invalid request method'})
