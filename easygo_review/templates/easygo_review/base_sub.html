@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}View more suburbs for EasyGo Airport Shuttle{% endblock %}</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'basecamp/favi/favicon.ico' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="google-site-verification" content="hae39L0Kv7JIxVc3YclvckH7Im5SdYa2hk_vZbGJIkA" />
+    <!-- SEO Meta Tags-->
+    <meta name="description" content="This is the review page for people who have used our EasyGo Airport Shuttle service">
+    <meta name="keywords" content="reviews easygo shuttle, reviews easygo, reviews for easygo airport shuttle, customer reviews for easygo service">
+    <meta name="author" content="EasyGo Airport Shuttle">
+    <link rel="stylesheet" href="{% static 'easygo_review/css/bootstrap.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'easygo_review/css/custom.min.css' %}"> 
+    <style>
+        .award-badge {
+          position: fixed;
+          /* top: 120px;
+          left: 60px; */
+          width: 240px; 
+          height: auto;
+          z-index: 1000; 
+        }
+    
+        @media (max-width: 768px) {
+          .award-badge {
+            /* top: 60px;
+            left: 30px; */
+            width: 120px; 
+          }
+        }
+    
+        @media (max-width: 480px) {
+          .award-badge {
+            /* top: 85px;
+            left: 15px; */
+            width: 80px; 
+          }
+        }
+      </style>          
+</head>
+<body>
+
+{% include 'easygo_review/navbar_sub.html' %}
+
+<div class="container">
+    <div class="row">
+        <!-- easygo_review Entries Column -->
+        
+            {% block content %}
+            {% endblock %}    
+        
+    </div>
+</div>
+
+<!-- footer -->    
+<div class="container" style="margin-top: 80px; padding: 0;">
+    <div class="footer container-xl width-full p-responsive" role="contentinfo" style="padding-right: 10px;">
+        <ul class="list-style-none border-top d-flex justify-content-end">
+            <li class="mr-3 mr-lg-2 list-unstyled"><small><a href="#">2024 All rights reserved by EasyGo Airport Shuttle</a></small></li>                    
+        </ul>
+    </div>
+</div>
+<script src="{% static 'easygo_review/js/jquery.min.js' %}"></script>
+<script src="{% static 'easygo_review/js/bootstrap.min.js' %}"></script>
+<script src="https://www.google.com/recaptcha/api.js?render={{ RECAPTCHA_V3_SITE_KEY }}" defer></script>
+    <script>
+        grecaptcha.ready(function() {
+            grecaptcha.execute("{{ RECAPTCHA_V3_SITE_KEY }}", {action: 'homepage'}).then(function(token) {
+                const csrftoken = '{{ csrf_token }}';
+                fetch('/recaptcha-verify/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': csrftoken
+                    },
+                    body: JSON.stringify({recaptchaToken: token})
+                }).then(response => {
+                    return response.json();
+                }).then(data => {
+                    if (data.success) {
+                        console.log('reCAPTCHA validation succeeded');
+                    } else {
+                        console.log('reCAPTCHA validation failed:', data.message);
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

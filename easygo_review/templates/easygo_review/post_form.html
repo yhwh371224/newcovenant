@@ -1,0 +1,76 @@
+{% extends 'easygo_review/base_sub.html' %}
+
+{% block title %} EasyGo Reviews {% endblock %}
+
+{% block content %}
+<style>
+    form {
+        display: block;
+        margin-top: 60px;
+    }
+    .col-md-4 {
+        margin-top: 60px; 
+    }
+    .star {
+        color: #ccc; 
+        cursor: pointer;
+        font-size: 20px;
+    }
+    .star.rated {
+        color: gold; 
+    }
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <table>
+                    {{ form.non_field_errors }}
+                    <tr>
+                        <th>{{ form.name.label_tag }}</th>
+                        <td>{{ form.name }}</td>
+                    </tr>            
+                    <tr>
+                        <th>{{ form.content.label_tag }}</th>
+                        <td>{{ form.content|safe }}</td>
+                    </tr>
+                    <tr>
+                        <th>{{ form.rating.label_tag }}</th>
+                        <td>
+                            <label for="rating">Click star rating:</label>
+                            <div class="star-rating" style="white-space: nowrap;">
+                                <span class="star" onclick="setRating(1)">&#9733;</span>
+                                <span class="star" onclick="setRating(2)">&#9733;</span>
+                                <span class="star" onclick="setRating(3)">&#9733;</span>
+                                <span class="star" onclick="setRating(4)">&#9733;</span>
+                                <span class="star" onclick="setRating(5)">&#9733;</span>
+                            </div>
+                            <input type="hidden" id="rating" name="rating" required>
+                        </td>
+                    </tr>
+                </table>
+                <div class="text-center"> 
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-4">
+            <a href="/static/basecamp/images/Digital-Certificate.webp">
+                <img src="/static/basecamp/images/award-badge.webp" alt="Award Badge" class="award-badge">
+              </a>
+        </div>
+    </div>
+</div>
+{{ form.media }}
+
+<script>
+function setRating(rating) {
+    const stars = document.querySelectorAll('.star-rating .star');
+    stars.forEach((star, index) => {
+        star.style.color = index < rating ? 'gold' : '#ccc';
+    });
+    document.getElementById('rating').value = rating;
+}
+</script>
+{% endblock %}

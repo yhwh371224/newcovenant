@@ -1,22 +1,31 @@
-"""
-URL configuration for main project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.1/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
+from django.views.static import serve
+from django.contrib.auth.decorators import user_passes_test
 
-urlpatterns = [
+admin_site = user_passes_test(lambda u: u.is_superuser)(admin.site.urls)
+
+urlpatterns = [      
     path('admin/', admin.site.urls),
+    path('markdownx/', include('markdownx.urls')),
+    path('blog/', include('blog.urls')),
+    path('easygo_review/', include('easygo_review.urls')),
+    path('', include('basecamp.urls')),
+    path('accounts/', include('allauth.urls')),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+admin.site.site_header = "NewCovenant Administration"
+admin.site.site_title = "NewCovenant Administration"
+admin.site.index_title = "NewCovenant admin"
+admin.site.block_title = "NewCovenant Admin"
+
+handler400 = 'blog.views.custom_bad_request'
+handler403 = 'blog.views.custom_forbidden'
+handler404 = 'blog.views.custom_page_not_found'
+handler500 = 'blog.views.custom_server_error'
+handler502 = 'blog.views.custom_bad_gateway'
+handler503 = 'blog.views.custom_under_maintenance'

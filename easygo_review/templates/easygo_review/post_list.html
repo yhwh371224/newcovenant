@@ -1,0 +1,141 @@
+{% extends 'easygo_review/base.html' %}
+
+{% block content %}
+{% load custom_filters %}
+
+<div class="col-md-8 order-2 order-md-1" id="main-div">
+    <br/>
+    <div class="row">
+        <div class="col-md-8" id="main-div">
+            <h5 id="easygo_review-list-title">
+                <br/>
+                <div>Reviews</div>                
+            </h5>
+        </div>
+        <div class="col-md-4" id="side-div">
+            <h5 id="easygo_review-list-title">
+                <br/>
+                {% if email %}
+                    <button class="btn btn-primary btn-sm float-right" onclick="location.href='/easygo_review/create/'">New Post</button>
+                {% else %}
+                    <button type="button" class="btn btn-primary btn-sm float-right" data-toggle="modal" data-target="#loginModal" >
+                        Log in
+                    </button>
+                {% endif %}   
+            </h5>
+        </div>
+    </div>
+    <br/>
+
+    {% if object_list %}
+        {% for post in object_list %}
+            <div class="card mb-4" id="post-card-{{ post.pk }}">
+                <div class="card-header text-muted">
+                    Posted by {{ post.name }} on {{ post.date }}
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{ post.get_markdown_content | striptags | safe }}</p>
+
+                    <br/>
+
+                    <p class="star-rating d-flex justify-content-center align-items-center">
+                        {% for _ in post.rating|filter_range %}
+                            <span class="gold-star">&#9733;</span>
+                        {% endfor %}
+                        {% for _ in post.rating|subtract_from_five %}
+                        <span class="grey-star">&#9733;</span>
+                        {% endfor %}
+                    </p>                   
+                    {% if post.author %}
+                    <p class="card-text">
+                        <a href="{{ post.get_absolute_url }}" class="btn btn-primary" id="read-more-post-{{ post.pk }}">Read More &rarr;</a>
+                    </p>  
+                    {% endif %}
+                </div>
+                {% if post.author %}
+                    <div class="card-footer text-muted">                    
+                            {{ post.name }} left this review directly on our website
+                    </div>
+                {% else %}
+                    <div class="card-footer text-muted">
+                        {{ post.name }}'s original review on Google >>>&nbsp;<a href="{{ post.link }}" target="_blank"> here</a>
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+
+        {% if is_paginated %}
+            <!-- Pagination -->
+            <ul class="pagination justify-content-center mb-4">
+                {% if page_obj.has_next %}
+                <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.next_page_number }}">&larr; Older</a>
+                </li>
+                {% else %}
+                <li class="page-item disabled">
+                        <a class="page-link" href="#">&larr; Older</a>
+                </li>
+                {% endif %}
+
+                {% if page_obj.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Newer &rarr;</a>
+                </li>
+                {% else %}
+                <li class="page-item disabled">
+                    <a class="page-link" href="#">Newer &rarr;</a>
+                </li>
+                {% endif %}
+            </ul>
+        {% endif %}
+    {% else %}
+        <h3>No Post</h3>
+    {% endif %}
+</div>
+
+<div class="col-md-4 order-1 order-md-2" id="side-div">
+    <br/>
+    <h5 class="side-h"><br/></h5>
+    <h5 class="side-h"><br/></h5>
+    <!-- Note Widget -->
+    <div class="card my-4">
+        <h5 class="card-header" style="color:red">Note!</h5>
+        <div class="card-body">
+            {% if email %}
+            <p class="card-text">
+                Click the 'New Post' button to leave a review. Only customers who have used our service can leave a review
+            </p>
+            <br><br>
+            {% else %}
+            <p class="card-text">
+                Most of the reviews here, except for those left directly on this site, are identical as the ones on Google.
+            </p>
+            <br><br><a href="https://bit.ly/3xkLEUD" target="_blank">Google Reviews</a> 
+            {% endif %}             
+        </div> 
+    </div>
+    <!-- Search Widget -->  
+    <div class="card my-4 search-widget">     
+        <h5 class="card-header">Search review</h5>
+        <div class="card-body">
+            <div class="input-group">
+                <input type="text" id="search-input" onkeyup="wait_for_enterkey()" class="form-control" placeholder="Search for..."/>
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" type="button" onclick="search_post();">Go !</button>
+                    </span>
+            </div>
+            <div id="error-message" class="text-danger mt-2" style="display: none;"></div>
+        </div>
+    </div> 
+    {% if search_error %}
+        <script>
+            alert("{{ search_error|escapejs }}");
+        </script>
+    {% endif %}
+    <br>
+    <a href="/static/basecamp/images/Digital-Certificate.webp">
+        <img src="/static/basecamp/images/award-badge.webp" alt="Award Badge" class="award-badge">
+    </a>
+</div>       
+
+{% endblock %}

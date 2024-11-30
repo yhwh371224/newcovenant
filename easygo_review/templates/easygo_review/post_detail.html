@@ -1,0 +1,28 @@
+{% extends 'easygo_review/base.html' %}
+
+{% block title %}EasyGo Reivew{% endblock %}
+
+{% block content %}
+<div class="review-section" style="padding: 20px;">  
+    <br/> 
+    <!-- Author -->
+    <div class="low" style="display: flex; align-items: center;">
+        <div>
+            <p class="lead">
+                Review by
+                <a href="#">{{ object.name }}</a>
+            </p>
+            <p>posted on {{ object.date }}</p>
+        </div>
+        
+        {% if user_name == object.name %}
+            <button type="button" class="btn btn-primary" style="margin-left: auto;" onclick="location.href='{{ object.get_update_url }}'">EDIT REVIEW</button>
+        {% endif %}
+    </div>
+    <br>
+    <br/>    
+    <!-- Post Content -->
+    {{ object.get_markdown_content | safe }}
+
+</div>
+{% endblock %}
