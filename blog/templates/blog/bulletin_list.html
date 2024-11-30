@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>교회 주보</h1>
+  <ul>
+    {% for bulletin in bulletins %}
+      <li>
+        <a href="{% url 'bulletin-detail' bulletin.pk %}">{{ bulletin.title }} - {{ bulletin.date }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

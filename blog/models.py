@@ -20,7 +20,7 @@ class Members(models.Model):
     email = models.EmailField(blank=False, db_index=True, verbose_name='email') 
     street = models.CharField(max_length=50, blank=True)   
     suburb = models.CharField(max_length=50, blank=True)
-    birthday = models.DateField(blank=True)
+    birthday = models.DateField(blank=True, null=True)
     children = models.CharField(blank=True)
     position = models.CharField(blank=True)
     vehicle = models.BooleanField(default=False, blank=True)
@@ -46,5 +46,18 @@ class Column(models.Model):
 
     def __str__(self):
         return self.title
+    
+
+class Bulletin(models.Model):
+    title = models.CharField(max_length=100, default='교회주보')  
+    date = models.DateField(blank=True, null=True)  
+    pdf_file = models.FileField(upload_to='bulletins/', blank=True)  
+    created = models.DateTimeField(auto_now_add=True)  
+
+    class Meta:
+        ordering = ['-date']  
+
+    def __str__(self):
+        return f"{self.title} - {self.date}"
 
 

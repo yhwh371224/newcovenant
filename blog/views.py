@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView
 from django.core.paginator import Paginator
-from .models import Members, Column
+from .models import Members, Column, Bulletin
 
 
 def column_list(request):
@@ -27,5 +27,17 @@ class MemberDetailView(DetailView):
     model = Members
     template_name = 'member_detail.html'
     context_object_name = 'member'
+
+
+class BulletinListView(ListView):
+    model = Bulletin
+    template_name = 'bulletins/bulletin_list.html'
+    context_object_name = 'bulletins'
+
+
+class BulletinDetailView(DetailView):
+    model = Bulletin
+    template_name = 'bulletins/bulletin_detail.html'
+    context_object_name = 'bulletin'
 
 
