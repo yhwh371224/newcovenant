@@ -3788,6 +3788,7 @@ textarea.form-control-lg {
 }
 .navbar-nav .dropdown-menu {
   position: static;
+  display: none;
   background-color: #f8f9fa; /* 드롭다운 배경 색 */
   border: 1px solid #ddd;    /* 경계선 */
   min-width: 10rem;          /* 메뉴 너비 설정 */
@@ -3796,6 +3797,9 @@ textarea.form-control-lg {
 }
 .navbar .dropdown-toggle::after {
   display: none; /* 화살표 제거 */
+}
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
 }
 .navbar-text {
   padding-top: 0.5rem;
