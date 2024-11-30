@@ -13,22 +13,38 @@ class BlogAppConfig(AppConfig):
         from . import signals
 
 
-class Post(models.Model):
-    name = models.CharField(max_length=100, blank=False)
-    contact = models.CharField(max_length=150, blank=True, null=True)
+class Members(models.Model):
+    english_name = models.CharField(max_length=50, blank=False)
+    korean_name = models.CharField(max_length=50, blank=False)
+    contact = models.CharField(max_length=50, blank=True)
     email = models.EmailField(blank=False, db_index=True, verbose_name='email') 
-    street = models.CharField(max_length=200, blank=True, null=True)   
-    suburb = models.CharField(max_length=100, blank=True, null=True)
-    birthday = models.TextField(blank=True, null=True)
-    children = models.TextField(blank=True, null=True)
-    position = models.TextField(blank=True, null=True)
-    vehicle = models.TextField(blank=True, null=True)
-    attendence = models.BooleanField(default=False, blank=True)        
-    calendar_event_id = models.CharField(max_length=255, blank=True, null=True)
+    street = models.CharField(max_length=50, blank=True)   
+    suburb = models.CharField(max_length=50, blank=True)
+    birthday = models.DateField(blank=True)
+    children = models.CharField(blank=True)
+    position = models.CharField(blank=True)
+    vehicle = models.BooleanField(default=False, blank=True)
+    attendence = models.BooleanField(default=False, blank=True)
     created = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         ordering = ['-created'] 
 
+    def __str__(self):
+        return f"{self.korean_name} ({self.english_name})"
+
+
+class Column(models.Model):
+    title = models.CharField(max_length=40)  
+    author = models.CharField(max_length=20, default='김곤주목사')  
+    content = models.TextField(blank=True)  
+    created = models.DateTimeField(auto_now_add=True)  
+    updated = models.DateTimeField(auto_now=True) 
+
+    class Meta:
+        ordering = ['-created'] 
+
+    def __str__(self):
+        return self.title
 
 
