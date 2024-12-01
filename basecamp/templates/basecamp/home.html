@@ -1,491 +1,357 @@
 <!DOCTYPE html>
-{% load static %}
-{% load compress %}
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Airport Transfers Sydney & Airport Shuttle services start from A$25</title>
-    <meta name="google-site-verification" content="hae39L0Kv7JIxVc3YclvckH7Im5SdYa2hk_vZbGJIkA" />
-    <meta name="description" content="Easygo Airport Shuttle provides a comfortable and reliable transfer service to/from Sydney Airport ✓ door to door service ✓ Fixed rates ✓ Free waiting time">
-    <meta name="keywords" content="sydney airport shuttle, sydney airport transfers, airport shuttle, airport shuttle sydney, airport transfers sydney, airport pickup service sydney, airport drop off service sydney, airport transfers near me, private transfers sydney, maxi taxi, mini buss">
-    <meta name="author" content="easygoshuttle.com.au">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/x-icon" href="{% static 'basecamp/favi/favicon.ico' %}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'basecamp/favi/apple-touch-icon.png' %}">
-    <link rel="android-chrome" type="image/png" sizes="192x192" href="{% static 'basecamp/favi/android-chrome-192x192.png' %}">
-	  <link rel="android-chrome" type="image/png" sizes="512x512" href="{% static 'basecamp/favi/android-chrome-512x512.png' %}">
-	  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'basecamp/favi/favicon-32x32.png' %}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'basecamp/favi/favicon-16x16.png' %}">
-    <link rel="manifest" href="{% static 'basecamp/favi/site.webmanifest' %}"> 
-    {% compress css %}
-    <style>
-      /* Critical CSS */
-      body { margin: 0; font-family: Arial, sans-serif; }
-      .jarallax-img {
-        background-size: cover;
-        background-position: center;
-        transition: background-image 1s ease-in-out;
-      }
-    </style>
-    <link rel="stylesheet" href="/static/basecamp/css/theme.min.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="/static/basecamp/css/theme.min.css"></noscript>
-    <link rel="stylesheet" media="screen" href="/static/basecamp/css/tiny-slider.css"/>
-    <link rel="stylesheet" media="screen" href="/static/basecamp/css/flatpickr.min.css"/> 
-    {% endcompress %}  
-    <link rel="stylesheet" href="/static/basecamp/css/theme.min.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="/static/basecamp/css/theme.min.css"></noscript>
-    <style>
-      .award-badge {
-        position: fixed;
-        top: 50px;
-        left: 40px;
-        width: 320px; 
-        height: auto;
-        z-index: 1000; 
-      }
-  
-      @media (max-width: 768px) {
-        .award-badge {
-          top: 30px;
-          left: 20px;
-          width: 180px; 
-        }
-      }
-  
-      @media (max-width: 480px) {
-        .award-badge {
-          top: 60px;
-          left: 10px;
-          width: 100px; 
-        }
-      }
-    </style>    
-  </head>
-  <body>   
-    <main class="page-wrapper">
-      <header class="header navbar navbar-expand-lg navbar-dark navbar-floating navbar-sticky" data-scroll-header data-fixed-element>
-        <div class="container px-0 px-xl-3">
-          <button class="navbar-toggler ms-n2 me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#primaryMenu" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><a class="navbar-brand flex-shrink-0 order-lg-1 mx-auto ms-lg-0 pe-lg-2 me-lg-4" href="/home/"><img class="navbar-floating-logo d-none d-lg-block" src="/static/basecamp/images/easygo_icon.webp" style="border-radius: 30%" alt="EasyGo Home" width="40"></a>
-          <div class="d-flex align-items-center order-lg-3 ms-lg-auto">
-			  <a class="nav-link-style fs-sm text-nowrap" data-view="modal-signin-view" href="#">
-				  <img class="fs-xl me-2 align-middle" src="/static/basecamp/images/easygo-logo-final.webp" alt="EasyGo_logo"  width="120" height="auto"></a>
-			</div>
-          <div class="offcanvas offcanvas-collapse order-lg-2" id="primaryMenu">
-            <div class="offcanvas-header navbar-shadow">
-              <h5 class="mt-1 mb-0">Menu</h5>
-              <button class="btn-close lead" type="button" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>새언약교회</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="#page-top"><img src="assets/img/suy_log.webp" alt="새언약교회" /> <span class="logo-text">새언약교회</span></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ms-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        <!-- 교회소개 드롭다운 메뉴 -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-bs-toggle="dropdown">
+                                교회안내
+                            </a>
+                            <ul class="dropdown-menu" >
+                                <li><a class="dropdown-item" href="#services">교회소개</a></li>
+                                <li><a class="dropdown-item" href="#services">목사님소개</a></li>
+                                <li><a class="dropdown-item" href="#team">섬기는 사람들</a></li>
+                                <li><a class="dropdown-item" href="#contact">교회위치 및 연락처</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-bs-toggle="dropdown">
+                                예배안내
+                            </a>
+                            <ul class="dropdown-menu" >
+                                <li><a class="dropdown-item" href="meetings">예배와 모임</a></li>
+                                <li><a class="dropdown-item" href="church-bulletin">교회주보</a></li>
+                            </ul>
+                        </li>     
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-bs-toggle="dropdown">
+                                하나님의 말씀
+                            </a>
+                            <ul class="dropdown-menu" >
+                                <li><a class="dropdown-item" href="#about">주일설교</a></li>
+                                <li><a class="dropdown-item" href="#contact">목사님 칼럼</a></li>
+                            </ul>
+                        </li>     
+                        <li class="nav-item"><a class="nav-link" href="#team">섬기는분들</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#photos">갤러리</a></li>                        
+                    </ul>
+                </div>
             </div>
-            <div class="offcanvas-body">
-              <!-- Menu-->
-              <ul class="navbar-nav">
+        </nav>
+        <!-- Masthead-->
+        <header class="masthead">
+            <div class="container">
+                <div class="masthead-subheading">Welcome To Our Church!</div>
+                <div class="masthead-heading text-uppercase welcome-text">새언약교회에 오신걸 환영합니다</div>
+                <div class="masthead-subheading">I will put my laws in their minds and write them on their hearts. I will be their God, and they will be my people</div>
+            </div>
+            <!-- Notice Box -->
+            <!-- <div class="notice-box">
+                <p>공지사항: 예배시간 변경되었습니다!</p>
+                <p>주일예배: 오후 1시 </p>
+            </div> -->
+        </header>
+        <!-- Services-->
+        <section class="page-section" id="services">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">교회안내</h2>
+                    <h3 class="section-subheading text-muted">건강한 교회, 성숙한 교회, 섬기는 교회</h3>
+                </div>
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">주일예배</h4>
+                        <p class="text-muted">상한 마음과 목마른 영혼이 소생하는 예배 바른 진리의 말씀이 선포되는 예배로 초대합니다. 말씀의 깊이와 넓이를 더해주고, 그 말씀을 따라 살아가도록 이끌어 줍니다.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">하나님의 말씀</h4>
+                        <p class="text-muted">성경 66권을 차례대로 공부합니다. 담임목사의 강해와 참여자들의 질문과 토론이 함께 어우러지는 실제적인 성경공부 시간입니다. </p>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">갤러리</h4>
+                        <p class="text-muted">새언약 교회와 성도님들의 다양한 모습들을 사진으로 담았습니다. 사진은 계속 업데이트되며 여러분들도 사진의 추억속에 함께 하기를 소망합니다!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Portfolio Grid-->
+        <section class="page-section bg-dark" id="words" >
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase"></h2>
+                    <h3 class="section-subheading text-muted">매주 설교말씀은 업데이트 됩니다</h3>
+                </div>
+                <div class="row">                    
+                    <div class="row justify-content-center"> 
+                        <div class="col-lg-4 col-sm-6 mb-4 d-flex justify-content-center"> 
+                            <!-- item 1-->
+                            <div class="portfolio-item">
+                                <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
+                                    <div class="portfolio-hover">
+                                        <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                    </div>
+                                    <img class="img-fluid" src="assets/img/portfolio/youtube1.PNG" alt="..." />
+                                </a>
+                                <div class="portfolio-caption">
+                                    <div class="portfolio-caption-heading">주일설교</div>
+                                    <a href="https://www.youtube.com" target="_blank">
+                                        <div class="portfolio-caption-subheading text-muted">동영상 보기 >></div>
+                                    </a>
+                                </div>                                
+                            </div>
+                        </div>
+                    </div>                          
+                </div>
+            </div>
+        </section>
+        <!-- About-->
+        <section class="page-section" id="about">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">새언약교회 이모저모</h2>
+                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                </div>
+                <ul class="timeline">
+                    <li>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/1.jpg" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <!-- <h4>2009-2011</h4> -->
+                                <h4 class="subheading">교회찬양팀</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">
+                                    우리 교회의 찬양팀은 하나님께 드리는 예배와 찬양을 통해 성도들이 더 깊은 은혜를 경험할 수 있도록 섬기고 있습니다. 
+                                    각자의 자리에서 마음과 목소리를 모아 하나님께 영광 돌리는 찬양팀의 모습을 함께 나누고 싶습니다. 
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/2.jpg" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <!-- <h4>March 2011</h4> -->
+                                <h4 class="subheading">성경공부</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">
+                                    성경공부는 하나님의 말씀을 깊이 묵상하고, 삶 속에서 그 뜻을 발견하며, 믿음의 뿌리를 더욱 견고히 하는 귀한 시간입니다. 
+                                    함께 모여 말씀을 나누고 질문하며 성장하는 이 여정에 여러분을 초대합니다. 
+                                    성경을 통해 하나님의 사랑과 계획을 더 깊이 경험해 보세요!
+                                </p>
+                        </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/3.jpg" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <!-- <h4>December 2015</h4> -->
+                                <h4 class="subheading">뷔페식점심</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">
+                                    예배 후에는 뷔페식 점심으로 풍성한 교제의 시간을 나눕니다. 
+                                    다양한 음식과 함께 서로의 삶을 나누며 따뜻한 사랑과 환영을 경험해 보세요. 
+                                    모두가 함께하는 기쁨의 식탁에 여러분을 초대합니다!
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/4.jpg" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <!-- <h4>July 2020</h4> -->
+                                <h4 class="subheading">유치부와 학생부</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">
+                                    유치부와 학생부는 다음 세대가 하나님의 사랑을 배우고 믿음 안에서 성장할 수 있도록 돕는 소중한 공동체입니다. 
+                                    유치부는 즐겁고 창의적인 활동과 성경 이야기를 통해 아이들이 믿음의 첫걸음을 내딛도록 돕고, 학생부는 말씀과 찬양, 
+                                    나눔을 통해 청소년들이 자신의 정체성과 삶의 방향을 하나님 안에서 발견하며 성장하도록 이끕니다. 
+                                    사랑과 은혜가 가득한 이 여정에 함께하세요!
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image">
+                            <h4>
+                                Be Part
+                                <br />
+                                Of Our
+                                <br />
+                                Church!
+                            </h4>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <!-- Team-->
+        <section class="page-section bg-light" id="team">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
+                    <h3 class="section-subheading text-muted">새언약교회 섬기는 분들 입니다</h3>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="assets/img/team/profile1.webp" alt="..." />
+                            <h4>김곤주</h4>
+                            <p class="text-muted">담임목사</p>                            
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="assets/img/team/3.jpg" alt="..." />
+                            <h4>이승재</h4>
+                            <p class="text-muted">협동목사</p>                            
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="assets/img/team/profile.webp" alt="..." />
+                            <h4>감승재</h4>
+                            <p class="text-muted">전도사</p>                            
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 mx-auto text-center">
+                        <p class="large text-muted">
+                            우리 교회의 사역자분들은 하나님께서 주신 사명과 열정을 가지고 교회와 공동체를 섬기고 있습니다. 
+                            각자의 역할에서 기도와 헌신으로 하나님을 높이며, 성도들이 믿음 안에서 성장하고 하나님의 사랑을 경험할 수 있도록 이끌어갑니다. 
+                            그들의 따뜻한 마음과 섬김으로 우리 교회는 더욱 풍성한 은혜의 공동체로 성장하고 있습니다. 
+                            함께 기도하고 지원하며 하나님의 사역을 이루어가는 사역자들에게 감사의 마음을 전합니다
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>    
+        <!-- Footer-->
+        <footer class="footer" style="background-color: #5a6268; padding-top: 4rem; padding-bottom: 4rem;" id="contact">
+            <div class="container" style="padding-top: 0.5rem; padding-bottom: 1rem;">                
+                <div class="row align-items-center">
+                    <div class="col-lg-4"></div>
+                    <div class="col-lg-4 my-3 my-lg-0">
+                        <a class="btn btn-dark btn-social mx-2" href="https://www.youtube.com" aria-label="Twitter" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/peterkim1515" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="https://www.google.com/maps/search/?api=1&query=109+Priam+St,+Chester+Hill" aria-label="Google" target="_blank"><i class="fas fa-map-marker-alt"></i></a>
+                    </div>
+                    <div class="col-lg-4"></div>
+                </div>
+            </div>
+            <div class="container" style="padding-top: 1rem;">                
+                <div class="row align-items-center">                    
+                    <div class="col-12 text-center" style="color: white;"><a class="link-dark text-decoration-none hover-effect" href="sms:+61466386584">0466 386 584 </a>(담임목사 김곤주)</div>
+                </div>
+            </div>
+            <div class="container" style="">                
+                <div class="row align-items-center">                    
+                    <div class="col-12 text-center" style="color: white;">이메일 주소: <a class="link-dark text-decoration-none hover-effect" href="mailto:info@easygoshuttle.com.au">kkj1515@hotmail.com</a></div>
+                </div>
+            </div>
+            <div class="container" style="padding-top: 1rem;">                
+                <div class="row align-items-center">                    
+                    <div class="col-12 text-center" style="color: white;">교회주소: <a class="link-dark text-decoration-none me-3 hover-effect" 
+                        href="https://www.google.com/maps/search/?api=1&query=109+Priam+St,+Chester+Hill" 
+                        target="_blank">
+                        109 Priam St, Chester Hill NSW 2162
+                    </a></div>
+                </div>
+            </div>
+            <div class="container" style="">                
+                <div class="row align-items-center">                    
+                    <div class="col-12 text-center" style="color: white;">성경공부모임: <a class="link-dark text-decoration-none me-3 hover-effect" 
+                        href="https://www.google.com/maps?q=2/2+Amy+Street,+Regents+Park+NSW+2143" 
+                        target="_blank">
+                        2/2 Amy Street, Regents Park NSW 2143
+                    </a></div>
+                </div>
+            </div>
+            <div class="container" style="padding-top: 1rem;">                
+                <div class="row align-items-center">                    
+                    <div class="col-12 text-center" style="color: white;">2024 All rights reserved &copy; 시드니 새언약교회</div>
+                </div>
+            </div>
+        </footer>
 
-                <li class="nav-item active">
-                  <a class="nav-link" href="/home/" >Home</a>
-                </li>
-                <li class="nav-item dropdown dropdown-mega active"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">AboutUs</a>
-                  <div class="dropdown-menu"><p class="dropdown-column dropdown-column-img bg-secondary" style="background-image: url('/static/basecamp/images/aboutus.webp');"></p>
-                    <div class="dropdown-column">
-                      <a class="dropdown-item" href="/about_us/">Learn about us</a>
-                      <a class="dropdown-item" href="/service/">View Our Services</a>
-                      <a class="dropdown-item" href="/information/">More Information about Booking</a>
-                      <a class="dropdown-item" href="/easygo_review/">Read Customer Reviews</a>
-                      <a class="dropdown-item" href="/more_suburbs/">Explore Service Areas</a>
-                      <a class="dropdown-item" href="/terms/">Terms and Conditions</a>
-                      <a class="dropdown-item" href="/privacy/">Privacy Policy</a>
-                      <a class="dropdown-item" href="/payonline/">Pay Online Now</a>
-                      <a class="dropdown-item" href="/meeting_point/">Airport Meeting Point</a></div>
-                  </div>
-                </li>                
-                <li class="nav-item dropdown active"><a class="nav-link dropdown-toggle" href="#"data-bs-toggle="dropdown">Airport Transfers</a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="/inquiry/">Price Inquiry</a></li>
-                    <li><a class="dropdown-item" href="/booking/">Book Now</a></li>                    
-                    <li><a class="dropdown-item" href="#reasons">Why Book With Us?</a></li>
-                  </ul>
-                      </li>
-                <li class="nav-item dropdown active"><a class="nav-link dropdown-toggle" href="#"data-bs-toggle="dropdown">Point to Point</a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="/p2p_single/">Price Inquiry</a></li>
-                    <li><a class="dropdown-item" href="/p2p/">Multiple way points</a></li> 
-                    <li><a class="dropdown-item" href="#reasons">Why Book With Us?</a></li>                  
-                  </ul>
-                      </li>                
-                <li class="nav-item dropdown active"><a class="nav-link dropdown-toggle" href="#"data-bs-toggle="dropdown">Cruise Transfers</a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="/cruise_inquiry/">Price Inquiry</a></li>
-                    <li><a class="dropdown-item" href="/cruise_booking/">Book Now</a></li>                    
-                    <li><a class="dropdown-item" href="#reasons">Why Book With Us?</a></li>
-                  </ul>
-                </li>				        
-                <li class="nav-item active">
-                  <a class="nav-link" href="/payonline/" >Pay online</a>
-                </li>
-                <li class="nav-item dropdown active" ><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" >contact</a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="/inquiry2/"><i class="far fa-paper-plane"></i>&nbsp;contact by form</a></li>
-                    <li><a class="dropdown-item" href="mailto:info@easygoshuttle.com.au"><i class="fal fa-envelope"></i>&nbsp;contact by email</a></li>
-                    <li><a class="dropdown-item"  href="sms:+61406883355"><i class="fad fa-sms"></i>&nbsp;contact by sms</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-		  </div></div>
-      </header>
-      <!-- Page content-->
-      <!-- Hero-->
-      <section class="jarallax bg-dark py-7" data-jarallax data-speed="0.1" >
-        <div class="jarallax-img" style="background-image: url('/static/basecamp/photos/easygo-home-page3.webp');"></div>
-          <a href="/static/basecamp/images/Digital-Certificate.webp"><img src="/static/basecamp/images/award-badge.webp" alt="Award Badge" class="award-badge"></a>
-        <div class="container py-4 py-sm-5 text-center">
-          <div class="py-md-6">
-			  <div><a role="button" class="btn btn-primary" href="/booking/">BOOK NOW</a> | <a class="btn btn-success" href="/inquiry/">PRICE NOW</a></div>
-			  <br>
-			  <div></div>
-			  <br><br>
-			  <p class="fs-lg text-light" id="changing-text">Private airport transfers with a fixed price, We are reliable & puntual, something 3% different from others<br> 			  
-          <a href="/easygo_review/">
-				  <img src="/static/basecamp/images/thumbsup.webp" alt="thumps_up" width="30" height="auto"></a>
-          <a href="/payonline_new/">
-          <img src="/static/basecamp/images/thumbsup.webp" alt="thumps_up" width="30" height="auto"></a>
-          <a href="/confirmation/">
-          <img src="/static/basecamp/images/thumbsup.webp" alt="thumps_up" width="30" height="auto"></a>
-        </p>
-          </div>
-		</div>
-      </section>
-      <!-- Price checking form-->
-      <form class="container position-relative zindex-5" action="/price_detail/" id="booking-form" method="post" style="margin-top: -125px;">
-		  {% csrf_token %}      
-        <div class="d-lg-flex align-items-center bg-secondary border rounded-3 px-4 pt-4 pb-3" >
-          <div class="d-sm-flex align-items-center flex-grow-1">
-            <div class="mb-3 pb-1 w-100 mb-sm-4 me-sm-3">
-              <label class="form-label" for="pickup-date">Pickup date</label>
-              <div class="input-group" >
-                <input class="form-control date-picker rounded" name="pickup_date" required type="date" placeholder="Choose date" data-datepicker-options="{&quot;altInput&quot;: true, &quot;altFormat&quot;: &quot;F j, Y&quot;, &quot;dateFormat&quot;: &quot;Y-m-d&quot;}" >
-				        <a class="date-picker flatpickr-input" href="#" aria-label="Choose date"><i class="ai-calendar position-absolute top-50 end-0 translate-middle-y me-3"></i></a>
-              </div>
-            </div>
-            <div class="mb-3 pb-1 w-100 mb-sm-4 me-sm-3">
-              <label class="form-label" for="start-point">From: start point</label>
-              <select class="form-select" name="start_point" required>
-                {% if home_suburbs %}
-                  {% for area in home_suburbs %}
-                    <option value="{{ area }}">
-                      {{ area }}
-                    </option>
-                  {% endfor %}
-                {% else %}
-                  <option value="" disabled selected>No areas available</option>
-                {% endif %}
-              </select>
-            </div>
-          </div>
-          <div class="d-sm-flex align-items-center">
-            <div class="mb-3 pb-1 w-100 mb-sm-4 me-sm-3">
-              <label class="form-label" for="end-point">To: end point</label>
-              <select class="form-select" name="end_point" required>
-                {% if home_suburbs %}
-                  {% for area in home_suburbs %}
-                    <option value="{{ area }}">
-                      {{ area }}
-                    </option>
-                  {% endfor %}
-                {% else %}
-                  <option value="" disabled selected>No areas available</option>
-                {% endif %}
-              </select>
-            </div>
-            <div class="mb-3 pb-1 w-100 mb-sm-4 me-sm-3">
-              <label class="form-label" for="passengers">Passengers</label>
-              <select class="form-select" name="no_of_passenger" required>
-          <option disabled selected value="" style="background-color: beige;">Number of people</option>                 
-				  <option value="1">1</option>
-				  <option value="2">2</option>
-				  <option value="3">3</option>
-				  <option value="4">4</option>
-				  <option value="5">5</option>
-				  <option value="6">6</option>
-				  <option value="7">7</option>
-				  <option value="8">8</option>
-				  <option value="9">9</option>
-				  <option value="10">10</option>
-				  <option value="11">11</option>
-				  <option value="12">12</option>
-				  <option value="13">13</option>          
-				  <option value="" disabled>Over 13(please contact us)</option>
-              </select>
-            </div>
-            <div class="text-center text-sm-start mt-2 mt-sm-4 mb-4">        
-				<button role="button" type="submit" class="btn btn-warning" href="/inquiry1/" id="submitButton">Go >>></button>
-            </div>
-          </div>
-        </div>
-      </form>
-	<!-- Offers carousel-->
-      <section class="container rounded bg-dark py-5 my-4 my-sm-0 py-sm-6 py-md-7">
-		  <h2 class="text-center mb-4" style="color:white"><span style="color: #eb7828">HOT OFFER</span> - Best Price Guaranteed</h2>
-        <div class="tns-carousel-wrapper">
-          
-            <div class="text-end" style="margin-bottom: 40px; margin-right: 20px;">
-              <a href="/more_suburbs/" style="color: #eb7828">View all &raquo;&raquo;&raquo;</a>
-            </div>
-                  
-          <div class="tns-carousel-inner" data-carousel-options="{&quot;items&quot;: 3, &quot;nav&quot;: false, &quot;gutter&quot;: 23, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;540&quot;:{&quot;items&quot;:2},&quot;900&quot;:{&quot;items&quot;:3}}}">
-
-            {% for suburb, details in suburbs.items %}
-              <div class="pb-1">
-                  <a class="card border-0 shadow card-hover mx-1" href="/airport-shuttle-{{ suburb|slugify }}/">
-                  <!-- <a class="card border-0 shadow card-hover mx-1" href="/airport-transfers-{{ suburb|slugify }}/"> -->
-                      <span class="badge badge-lg badge-floating badge-floating-end bg-danger" style="width: 5rem;">${{ details.price }}</span>
-                      <div class="card-img-top card-img-gradient" style="position: relative; overflow: hidden; width: 100%; max-height: 360px;">
-                          <img loading="lazy" src="{{ details.image_url }}" alt="airport shuttle {{ suburb }}" style="width: 100%; height: auto; display: block;" >
-                          <span class="card-floating-text text-light fw-medium">Discover the trip<i class="ai-chevron-right align-middle fs-lg ms-1"></i></span>
-                      </div>
-                      <div class="card-body text-center">
-                          <h3 class="h5 pt-1 mb-3">{{ suburb|title }}</h3>
-                          <p class="fs-sm text-muted mb-2">{{ details.description }}</p>
-                          <p class="fs-sm text-muted mb-2">{{ details.extra }}</p>
-                          <p class="fs-sm mb-2" style="color: blue;">more details >>></p>
-                      </div>
-                  </a>
-              </div>
-             {% endfor %}     
-
-          </div>
-        </div>
-        <br>
-        <div class="text-center mb-4">          
-          <a href="/more_suburbs1/" style="color: #eb7828">Search your area &raquo;&raquo;&raquo;</a>
-        </div>
-      </section>
-      <!-- Features CTA-->
-      <section class="bg-gradient position-relative pt-6 pb-5 py-sm-6">
-        <div class="position-absolute top-0 start-0 w-100 h-100 bg-size-cover" style="background-image: url('/static/basecamp/photos/bg-pattern01.webp');"></div>
-        <div class="position-relative zindex-5 container py-2">
-          <div class="row align-items-center">
-            <div class="col-lg-5 offset-lg-1 order-lg-2 pb-5 pb-lg-0 text-center text-lg-start">
-			  <h2 class="text-light">Easygo Airport Shuttle</h2>
-              <p class="text-light mb-0">
-				  We provide an express pickup and transport service to and from Sydney Airport, delivering to and from hotels, homes, business offices or any other venue. Catering to individual travellers, families or corporate groups we run the easiest and most cost-effective of shuttle services.
-			  </p>
-            </div>
-            <div class="col-lg-6 order-lg-1">
-              <div class="row">
-                <div class="col-sm-4 mb-2 pb-4 mb-sm-0 pb-sm-0">
-                  <div class="px-2 text-center"><img loading="lazy" class="bg-light rounded-circle mb-2 img-fluid" src="/static/basecamp/images/01.svg" alt="Tickets" width="105" height="auto">
-                    <p class="fs-sm fw-medium text-light mb-0 pt-1">Make it easier to experience the airport transfers</p>
-                  </div>
-                </div>
-                <div class="col-sm-4 mb-2 pb-4 mb-sm-0 pb-sm-0">
-                  <div class="px-2 text-center"><img loading="lazy" class="bg-light rounded-circle mb-2 img-fluid" src="/static/basecamp/images/02.svg" alt="Search" width="105" height="auto">
-                    <p class="fs-sm fw-medium text-light mb-0 pt-1">Chartered Bus Hire</p>
-                  </div>
-                </div>
-                <div class="col-sm-4 mb-2 pb-4 mb-sm-0 pb-sm-0">
-                  <div class="px-2 text-center"><img loading="lazy" class="bg-light rounded-circle mb-2 img-fluid" src="/static/basecamp/images/03.svg" alt="Flight" width="105" height="auto">
-                    <p class="fs-sm fw-medium text-light mb-0 pt-1">Find the cheapest airport transfer price</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- FAQ-->
-      <section class="container py-5 my-4 my-sm-0 py-sm-6 py-md-7">
-        <h2 class="text-center pb-2 mb-5">Popular questions</h2>
-        <div class="row pb-2">
-          <div class="col-lg-6">
-            <div class="accordion" id="faq">
-				<div class="accordion-item shadow">
-                <h2 class="accordion-header" id="faq-heading-1">
-                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-1" aria-expanded="true" aria-controls="faq-content-1">What are included in the price we get? Is there any extra charge?</button>
-                </h2>
-                <div class="accordion-collapse collapse show" id="faq-content-1" aria-labelledby="faq-heading-1" data-bs-parent="#faq">
-                  <div class="accordion-body">
-                    <div class="fs-sm">The price you receive from EasyGo includes the airport parking fee, and we do not charge extra for any waiting time incurred due to flight delays. Our price is fixed, and there are no additional charges.</div>
-                  </div>
-                </div>
-              </div>
-				<div class="accordion-item shadow">
-                <h2 class="accordion-header" id="faq-heading-2">
-                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-2" aria-expanded="true" aria-controls="faq-content-2">What if my flight is delayed?</button>
-                </h2>
-                <div class="accordion-collapse collapse show" id="faq-content-2" aria-labelledby="faq-heading-2" data-bs-parent="#faq">
-                  <div class="accordion-body">
-                    <div class="fs-sm">EasyGo drivers will keep track of your flights landing time in order to meet you on time. He will call or message you by the time you collect your baggage. Simply proceed to the meeting point, and your driver will be waiting for you there.</div>
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-item shadow">
-                <h2 class="accordion-header" id="faq-heading-3">
-                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-3" aria-expanded="true" aria-controls="faq-content-3">What are the payment options available?</button>
-                </h2>
-                <div class="accordion-collapse collapse show" id="faq-content-3" aria-labelledby="faq-heading-3" data-bs-parent="#faq">
-                  <div class="accordion-body">
-                    <div class="fs-sm">EasyGo accepts all major credit cards, including American Express, MasterCard, and VisaCard. Alternatively, you can pay cash to your driver on the day of your booking. However, for those arriving in Sydney, we kindly request payment in advance.</div>
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-item shadow">
-                <h2 class="accordion-header" id="faq-heading-4">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-4" aria-expanded="false" aria-controls="faq-content-4">Do you offer infant seats or baby capsules?</button>
-                </h2>
-                <div class="accordion-collapse collapse" id="faq-content-4" aria-labelledby="faq-heading-4" data-bs-parent="#faq">
-                  <div class="accordion-body">
-                    <div class="fs-sm">We do provide an infant seat or baby capsule, and two car seats are available free of charge. If you require more than two seats, we charge an extra $10 per additional seat. Please specify the number of seats you require during the booking process.</div>
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-item shadow">
-                <h2 class="accordion-header" id="faq-heading-5">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-5" aria-expanded="false" aria-controls="faq-content-5">How many passengers can I fit into EasyGo's shuttle?</button>
-                </h2>
-                <div class="accordion-collapse collapse" id="faq-content-5" aria-labelledby="faq-heading-5" data-bs-parent="#faq">
-                  <div class="accordion-body">
-					  <div class="fs-sm">Our standard shuttle mini bus can accommodate up to thirteen (13) passengers. You can view a photo of the vehicle on our webpage.<a href="https://easygo-staticfiles-bucket.s3.ap-southeast-2.amazonaws.com/EasyGo+Vehicle.webp">'EASYGO SERVICES'</a></div>
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-item shadow">
-                <h2 class="accordion-header" id="faq-heading-6">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-6" aria-expanded="false" aria-controls="faq-content-6">How many bags can I take with me?</button>
-                </h2>
-                <div class="accordion-collapse collapse" id="faq-content-6" aria-labelledby="faq-heading-6" data-bs-parent="#faq">
-                  <div class="accordion-body">
-                    <div class="fs-sm">EASYGO allows one (1) bag plus one (1) carry-on per person. If you have additional bags, please inform our office.</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="d-none d-lg-block col-lg-5 offset-lg-1"><img loading="lazy" src="/static/basecamp/images/illustration.svg"  alt="Illustration"></div>
-        </div>
-      </section>
-      <!-- Services (Split section)-->
-      <section class="row g-0 mt-3" id="reasons">
-        <div class="col-md-6 bg-size-cover py-7" style="background-image: url('/static/basecamp/photos/services-cover.webp');">
-          <div class="py-6"></div>
-        </div>
-        <div class="col-md-6 border-top border-bottom px-3 pe-xl-0 ps-lg-5 ps-xl-7">
-			<div class="ms-sm-4 my-2 py-5 my-sm-0 py-sm-6 py-md-7" style="max-width: 495px;">
-				<h2 class="mb-4"><span style="color:orange">7 Reasons to book with</span> <span style="color:navy">EasyGo </span></h2>
-				<p style="line-height: 2.0; list-style-type:circle"><i class="fad fa-caret-right"></i>&nbsp;Competitive &amp; fixed price</p>
-				<p style="line-height: 2.0;"><i class="fad fa-caret-right"></i>&nbsp;Mostly non-shared ride, private ride&nbsp;</p>
-				<p style="line-height: 2.0;"><i class="fad fa-caret-right"></i>&nbsp;Direct Express Service, No additional stops</p>
-				<p style="line-height: 2.0;"><i class="fad fa-caret-right"></i>&nbsp;Reliable &amp; punctual service</p>
-				<p style="line-height: 2.0;"><i class="fad fa-caret-right"></i>&nbsp;Clean &amp; modern vehicle</p>
-				<p style="line-height: 2.0;"><i class="fad fa-caret-right"></i>&nbsp;Qualified &amp; experienced driver</p>
-				<p style="line-height: 2.0;"><i class="fad fa-caret-right"></i>&nbsp;Very competitive price with all the service above</p><br>
-			</div>
-        </div>
-      </section>
-      <section class="pt-0 pt-md-5">
-        <div class="container">
-          <div class="text-center position-relative py-5" style="background-image:url(/static/basecamp/images/map.svg); background-position: center left; background-size: cover;">
-            <div class="bg-overlay bg-dark opacity-1"></div>
-            <div class="row mb-5">
-              <div class="col-12">
-                <h3>Hear From Our Happy Clients</h3>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-9 col-xl-7 mx-auto">
-                <div class="tiny-slider dots-primary">
-                  <div class="tiny-slider-inner" data-autoplay="6000" data-arrow="false" data-dots="true" data-edge="2" data-items="1">
-                    <div>
-                      <p class="h5 fw-light mb-3">"Thank you for your help in making the final part of our long journey easy. 
-                        Communication is so important and you were great from the start. I will circulate Easygo details to others and let my travel agent know. 
-                        Much appreciated."</p>                      
-                      <h5 class="mb-0">Rhona and Colin</h5>                      
-                    </div><br>
-                    <div>
-                      <p class="h5 fw-light mb-3">"Easy to work with, reliable, on time.
-                        We have used GoEasy Shuttle now on five occasions for our small group student tours. 
-                        They have always been on time, friendly, helpful and taken us to and from the airport in good time and are good value. 
-                        As a group organiser reliability is the key thing that I need. I need to know my group will catch their plane and not be left standing around. 
-                        They were good on two occasions my flights were cancelled too. Peter is a nice guy and happy to recommend his services based on my current experiences with them. 
-                        Thanks for your help"</p>                      
-                      <h5 class="mb-0">Peter Russell</h5>
-                    </div><br>	
-                    <div>
-                      <p class="h5 fw-light mb-3">"Just used Easygo to/from international airport. 
-                        Booked the shuttle few days ahead of time and no problem at all. 
-                        International airport was a mess and waited for almost 2 hours for the luggage collection and they are willing to wait/arrange for another shuttle for the pick up. 
-                        Very happy with the service. Highly recommended!"</p>                      
-                      <h5 class="mb-0">CD Khoo</h5>
-                    </div><br>                   
-                  </div>
-                </div>                
-                   <div class="col-12">
-                    <h5><a href="/easygo_review/">
-                      More Reviews&nbsp;&nbsp;&raquo;&raquo;&raquo;</a></h5>                                    
-                  </div>
-             </div>                
-            </div>
-            </div>              
-            </div>            
-          </div>
-        </div>
-      </section>
-      <section class="row g-0 mt-3" id="reasons" style="background-image: url('/static/basecamp/images/Digital-Certificate.webp'); background-size: contain; background-repeat: no-repeat; background-position: center; height: 40vh; min-height: 200px; cursor: pointer;" onclick="location.href='https://easygo.s3.ap-southeast-2.amazonaws.com/panel_members.webp';">
-        <div class="col-12">
-            <div class="py-6" style="min-height: 200px;"></div>
-        </div>
-    </section>   
-    <section class="bg-dark text-light py-5">
-        <div class="container text-center">
-            <h2 class="mb-4"><span style="color:orange">2024 Quality Business Award!</span></h2>
-            <p style="line-height: 2.0;">EasyGo Airport Shuttle has won the 2024 Quality Business Award from the Inner West Council!</p>            
-            <a href="https://easygo.s3.ap-southeast-2.amazonaws.com/panel_members.webp">
-              https://s3.ap-southeast-2.amazonaws.com/easygo-airport-shuttle/panel_members.webp
-            </a>
-        </div>
-    </section>
-    </main>
-    <footer class="site-footer bg-dark pt-5 pb-4">
-      <div class="container d-md-flex justify-content-between align-items-center text-center">
-        <ul class="list-inline fs-sm mb-3 order-md-2">
-          <li class="list-inline-item my-1"><a class="nav-link-style nav-link-light" href="mailto:info@easygoshuttle.com.au">Support</a></li>
-          <li class="list-inline-item my-1"><a class="nav-link-style nav-link-light" href="/inquiry2/">Contact</a></li>
-		      <li class="list-inline-item my-1"><a class="nav-link-style nav-link-light" href="/privacy/">Privacy Policy</a></li>
-          <li class="list-inline-item my-1"><a class="nav-link-style nav-link-light" href="/terms/">Terms &amp; Conditions</a></li>
-        </ul>
-        <p class="fs-sm mb-3 order-md-1"><span class="text-light opacity-50 me-1">© 2024 EasyGo. All rights reserved.</a></p>        
-      </div>
-    </footer> 
-{% compress js %}
-<script src="/static/basecamp/js/bootstrap.bundle.min.js" defer></script>
-<script src="/static/basecamp/js/smooth-scroll.polyfills.min.js" defer></script>
-<script src="/static/basecamp/js/jarallax.min.js" defer></script>
-<script src="/static/basecamp/js/min/tiny-slider.js" defer></script>
-<script src="/static/basecamp/js/flatpickr.min.js" defer></script>
-<script src="/static/basecamp/js/date-picker.js" defer></script>
-<script src="/static/basecamp/js/theme.min.js" defer></script>
-{% endcompress js %}
-<script src="https://www.google.com/recaptcha/api.js?render={{ RECAPTCHA_V3_SITE_KEY }}" defer></script>
-<script>
-    grecaptcha.ready(function() {
-        grecaptcha.execute("{{ RECAPTCHA_V3_SITE_KEY }}", {action: 'homepage'}).then(function(token) {
-            const csrftoken = '{{ csrf_token }}';
-            fetch('/recaptcha-verify/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRFToken': csrftoken
-                },
-                body: JSON.stringify({recaptchaToken: token})
-            }).then(response => {
-                return response.json();
-            }).then(data => {
-                if (data.success) {
-                    console.log('reCAPTCHA validation succeeded');
-                } else {
-                    console.log('reCAPTCHA validation failed:', data.message);
-                }
-            });
-        });
-    });
-</script>
-  </body>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>    
+        <style>
+            /* 링크 및 버튼 색상 변화 */
+            .hover-effect {
+                color: white; /* 기본 색상 */
+                transition: color 0.3s, background-color 0.3s; /* 부드러운 전환 효과 */
+            }
+        
+            .hover-effect:hover {
+                color: #ffd700 !important/* 마우스를 올렸을 때 색상 */
+                
+            }
+        </style>
+        <script>        
+            const images = [
+            "../assets/img/suy8.webp",
+            "../assets/img/suy7.webp", 
+            "../assets/img/suy5.webp" 
+            ];
+        
+            let currentIndex = 0; 
+        
+            function changeBackgroundImage() {
+            const header = document.querySelector('header.masthead');          
+            
+            header.style.backgroundImage = `url(${images[currentIndex]})`;          
+            
+            currentIndex = (currentIndex + 1) % images.length;
+            }      
+            
+            setInterval(changeBackgroundImage, 3000);
+        </script>
+    </body>      
 </html>
