@@ -35,8 +35,8 @@ class Members(models.Model):
 
 
 class Column(models.Model):
-    title = models.CharField(max_length=40)  
-    author = models.CharField(max_length=20, default='김곤주목사')  
+    title = models.CharField(max_length=100)  
+    author = models.CharField(max_length=50, default='김곤주목사')  
     content = models.TextField(blank=True)  
     created = models.DateTimeField(auto_now_add=True)  
     updated = models.DateTimeField(auto_now=True) 

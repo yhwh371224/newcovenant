@@ -53,70 +53,12 @@ INSTALLED_APPS = [
     'storages',
     'compressor',
     'corsheaders',
-    'paypal.standard.ipn',
-    'admin_honeypot',
     'markdownx',
     'csp',
-    'axes',    
 ]
 
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'formatters': {
-        'verbose': {
-            'format': '{levelname} {asctime} {module} {message}',
-            'style': '{',
-        },
-    },
-    'handlers': {
-        'file': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR, 'logs/django.log'),
-            'formatter': 'verbose',
-        },
-        'email_file': {
-            'level': 'INFO',
-            'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR, 'logs/email_reminders.log'),
-            'formatter': 'verbose',
-        },
-        'sms_file': {  
-            'level': 'INFO',
-            'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR, 'logs/sms.log'),  
-            'formatter': 'verbose',
-        },
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['file'],
-            'level': 'DEBUG',
-            'propagate': False,
-        },
-        'blog.management.commands.booking_reminder': {
-            'handlers': ['email_file'],
-            'level': 'INFO',
-            'propagate': False,
-        },
-        'sms': {  
-            'handlers': ['sms_file'],  
-            'level': 'INFO',  
-            'propagate': False,
-        },
-    },
-}
-
-
-CELERY_BROKER_URL = config('CELERY_BROKER', 'redis://redis:6379')
-CELERY_ACCEPT_CONTENT = ['application/json']
-CELERY_TASK_SERIALIZER = 'json'
-CELERY_TIMEZONE = 'Australia/Sydney'
-CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True
-
 SITE_ID = 1
-SITE_URL = 'https://easygoshuttle.com.au'
+SITE_URL = 'https://suy.net.au'
 
 MIDDLEWARE = [
     'django.middleware.gzip.GZipMiddleware',     
@@ -133,12 +75,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware', 
     'allauth.account.middleware.AccountMiddleware',    
-    'axes.middleware.AxesMiddleware',
-]
 
-AXES_FAILURE_LIMIT = 7  
-AXES_COOLOFF_TIME = timedelta(minutes=60)  
-AXES_LOCKOUT_MESSAGE = "Access locked. Please contact the office"
+]
 
 ROOT_URLCONF = 'main.urls'
 
@@ -207,7 +145,6 @@ USE_L10N = True
 USE_TZ = True
 
 AUTHENTICATION_BACKENDS = (    
-    'axes.backends.AxesStandaloneBackend',
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
     'blog.auth_backends.PostEmailBackend',
@@ -276,26 +213,13 @@ LOGIN_REDIRECT_URL = '/easygo_review/'
 LOGOUT_REDIRECT_URL = '/home/'
 
 CORS_ALLOWED_ORIGINS = [
-    "https://easygoshuttle.com.au",
+    "https://suy.net.au",
     
 ]
 
 CORS_ALLOW_METHODS = [ 'GET', 'POST', ]
 
 CORS_ALLOW_HEADERS = [ 'Content-Type', 'X-CSRFToken', ]
-
-#PayPal settings
-PAYPAL_MODE = 'live'  
-PAYPAL_CLIENT_ID = config('PAYPAL_CLIENT_ID')
-PAYPAL_CLIENT_SECRET = config('PAYPAL_CLIENT_SECRET')
-PAYPAL_RECEIVER_EMAIL = 'info@easygoshuttle.com.au'
-PAYPAL_IPN_URL = 'https://easygoshuttle.com.au/paypal_ipn/'
-
-# Stripe settings
-STRIPE_MODE = 'live' 
-STRIPE_LIVE_SECRET_KEY = config('STRIPE_LIVE_SECRET_KEY')
-STRIPE_WEBHOOK_SECRET = config('STRIPE_WEBHOOK_SECRET')
-STRIPE_PUBLIC_KEY = config('STRIPE_PUBLIC_KEY')
 
 # Email settings
 EMAIL_HOST = config('EMAIL_HOST')
@@ -307,12 +231,6 @@ EMAIL_USE_SSL = False
 EMAIL_BACKEND = config('EMAIL_BACKEND')
 
 GMAIL_API_SERVICE_ACCOUNT_FILE = config('GMAIL_API_SERVICE_ACCOUNT_FILE')
-
-RECAPTCHA_V2_SITE_KEY = config('RECAPTCHA_V2_SITE_KEY')
-RECAPTCHA_V2_SECRET_KEY = config('RECAPTCHA_V2_SECRET_KEY')
-
-RECAPTCHA_V3_SITE_KEY = config('RECAPTCHA_V3_SITE_KEY')
-RECAPTCHA_V3_SECRET_KEY = config('RECAPTCHA_V3_SECRET_KEY')
 
 MARKDOWNX_MEDIA_PATH = datetime.now().strftime('markdownx/%Y/%m/%d/')
 
