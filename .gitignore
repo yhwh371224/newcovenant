@@ -7,7 +7,7 @@ media/
 
 temp/
 
-# .env 
+.env 
 
 __pycache__/
 
