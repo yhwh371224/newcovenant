@@ -20,6 +20,11 @@ def information(request):
     return render(request, 'basecamp/information.html')
 
 
+def introduction(request):     
+    return render(request, 'basecamp/introduction.html')
+
+
+
 def church_bulletin(request):     
     return render(request, 'basecamp/church_bulletin.html')
 
