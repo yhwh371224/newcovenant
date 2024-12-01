@@ -12,7 +12,7 @@ from django.http import JsonResponse
 
 from .models import Post, Comment
 from .forms import CommentForm, PostForm
-from blog.models import Post as BlogPost
+from .models import Post 
 from main.settings import RECIPIENT_EMAIL
 
 
@@ -20,7 +20,7 @@ def custom_login_view(request):
     error = None
     if request.method == 'POST':
         email = request.POST['email']
-        posts = BlogPost.objects.filter(email=email)
+        posts = Post.objects.filter(email=email)
         if posts.exists():
             post = posts.first()  
             request.session['email'] = post.email
@@ -38,7 +38,7 @@ def custom_logout_view(request):
 def get_authenticated_post(request):
     email = request.session.get('email')
     if email:
-        posts = BlogPost.objects.filter(email=email)
+        posts = Post.objects.filter(email=email)
         if posts.exists():
             return posts.first()  
     return None
@@ -58,7 +58,7 @@ class PostList(ListView):
 
         email = self.request.session.get('email', None)
         if email:
-            blog_post = BlogPost.objects.filter(email=email).first()  
+            blog_post = Post.objects.filter(email=email).first()  
             if blog_post:
                 user_name = blog_post.name
                 context['user_name'] = user_name
@@ -77,7 +77,7 @@ class PostCreate(View):
     def get(self, request, *args, **kwargs):
         email = request.session.get('email')  
         if email:
-            blog_post = BlogPost.objects.filter(email=email).first()
+            blog_post = Post.objects.filter(email=email).first()
             form = PostForm(initial={'name': blog_post.name})  
         else:
             form = PostForm()
@@ -88,7 +88,7 @@ class PostCreate(View):
         if form.is_valid():
             email = request.session.get('email')  
             if email:
-                blog_post = BlogPost.objects.filter(email=email).first()
+                blog_post = Post.objects.filter(email=email).first()
                 form.instance.author = blog_post.name  
                 form.instance.name = blog_post.name                  
                 form.save()
@@ -125,7 +125,7 @@ class PostDetail(DetailView):
         context['authenticated_post'] = authenticated_post 
 
         if email:
-            blog_post = BlogPost.objects.filter(email=email).first()  
+            blog_post = Post.objects.filter(email=email).first()  
             if blog_post:
                 user_name = blog_post.name
                 context['user_name'] = user_name
@@ -152,7 +152,7 @@ class PostUpdate(UpdateView):
         context['authenticated_post'] = authenticated_post 
 
         if email:
-            blog_post = BlogPost.objects.filter(email=email).first()  
+            blog_post = Post.objects.filter(email=email).first()  
             if blog_post:
                 user_name = blog_post.name
                 context['user_name'] = user_name
@@ -171,7 +171,7 @@ class CommentCreate(View):
 
         user_name = None
         if email:
-            blog_post = BlogPost.objects.filter(email=email).first()
+            blog_post = Post.objects.filter(email=email).first()
             if blog_post:
                 user_name = blog_post.name
 
@@ -192,7 +192,7 @@ class CommentCreate(View):
 
         user_name = None
         if email:
-            blog_post = BlogPost.objects.filter(email=email).first()
+            blog_post = Post.objects.filter(email=email).first()
             if blog_post:
                 user_name = blog_post.name
 
@@ -225,7 +225,7 @@ class CommentUpdate(UpdateView):
         user_name = None
 
         if email:
-            blog_post = BlogPost.objects.filter(email=email).first()
+            blog_post = Post.objects.filter(email=email).first()
             if blog_post:
                 user_name = blog_post.name
 
@@ -240,7 +240,7 @@ class CommentUpdate(UpdateView):
         user_name = None
 
         if email:
-            blog_post = BlogPost.objects.filter(email=email).first()
+            blog_post = Post.objects.filter(email=email).first()
             if blog_post:
                 user_name = blog_post.name
 
@@ -263,7 +263,7 @@ class CommentDelete(DeleteView):
         user_name = None
 
         if email:
-            blog_post = BlogPost.objects.filter(email=email).first()
+            blog_post = Post.objects.filter(email=email).first()
             if blog_post:
                 user_name = blog_post.name
 
@@ -278,7 +278,7 @@ class CommentDelete(DeleteView):
         user_name = None
 
         if email:
-            blog_post = BlogPost.objects.filter(email=email).first()
+            blog_post = Post.objects.filter(email=email).first()
             if blog_post:
                 user_name = blog_post.name
 
