@@ -23,9 +23,4 @@ admin.site.site_title = "NewCovenant Administration"
 admin.site.index_title = "NewCovenant admin"
 admin.site.block_title = "NewCovenant Admin"
 
-handler400 = 'blog.views.custom_bad_request'
-handler403 = 'blog.views.custom_forbidden'
-handler404 = 'blog.views.custom_page_not_found'
-handler500 = 'blog.views.custom_server_error'
-handler502 = 'blog.views.custom_bad_gateway'
-handler503 = 'blog.views.custom_under_maintenance'
+
