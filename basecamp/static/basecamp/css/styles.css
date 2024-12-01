@@ -10992,6 +10992,19 @@ header.masthead::before {
   transition: opacity 1s ease-in-out; /* 부드럽게 변경되는 오버랩 */
   opacity: 0;
 }
+header.base_masthead {
+  padding-top: 10.5rem;
+  padding-bottom: 6rem;
+  text-align: center;
+  color: #ff0;
+  background-image: url("../assets/img/meeting.PNG");
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
+  background-color: rgba(0, 0, 255, 0.7) !important;
+  position: relative;
+}
 
 @media (min-width: 768px) {
   header.masthead {
