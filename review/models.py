@@ -9,7 +9,6 @@ class Post(models.Model):
     content = MarkdownxField()
     name = models.CharField(max_length=100, blank=False, null=True)
     date = models.DateField(blank=True, null=True, default=datetime.date.today)
-    rating = models.IntegerField(default=5, choices=[(i, i) for i in range(1, 6)])
     created = models.DateTimeField(auto_now_add=True)
     author = models.CharField(max_length=100, blank=True, null=True)
 
@@ -20,7 +19,7 @@ class Post(models.Model):
         return str(self.author)
 
     def get_absolute_url(self):
-        return '/easygo_review/{}/'.format(self.pk)
+        return '/review/{}/'.format(self.pk)
 
     def get_update_url(self):
         return self.get_absolute_url() + 'update/'

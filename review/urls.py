@@ -2,11 +2,11 @@ from django.urls import path
 from . import views
 from django.contrib.auth import views as auth_views
 
-app_name = 'easygo_review'
+app_name = 'review'
 
 urlpatterns = [
-    path('', views.PostList.as_view(), name="easygo_review"),
-    path('create/', views.PostCreate.as_view(), name="easygo_review_create"),
+    path('', views.PostList.as_view(), name="review"),
+    path('create/', views.PostCreate.as_view(), name="review_create"),
     path('custom_login/', views.custom_login_view, name='custom_login'),
     path('custom_logout/', views.custom_logout_view, name='custom_logout'),
     path('search/<str:q>/', views.PostSearch.as_view(), name="post_search"),

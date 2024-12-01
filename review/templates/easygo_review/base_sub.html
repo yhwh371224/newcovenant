@@ -12,16 +12,16 @@
     <meta name="description" content="This is the review page for people who have used our EasyGo Airport Shuttle service">
     <meta name="keywords" content="reviews easygo shuttle, reviews easygo, reviews for easygo airport shuttle, customer reviews for easygo service">
     <meta name="author" content="EasyGo Airport Shuttle">
-    <link rel="stylesheet" href="{% static 'easygo_review/css/bootstrap.css' %}" media="screen">
-    <link rel="stylesheet" href="{% static 'easygo_review/css/custom.min.css' %}"> 
+    <link rel="stylesheet" href="{% static 'review/css/bootstrap.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'review/css/custom.min.css' %}"> 
 </head>
 <body>
 
-{% include 'easygo_review/navbar_sub.html' %}
+{% include 'review/navbar_sub.html' %}
 
 <div class="container">
     <div class="row">
-        <!-- easygo_review Entries Column -->
+        <!-- review Entries Column -->
         
             {% block content %}
             {% endblock %}    
@@ -37,8 +37,8 @@
         </ul>
     </div>
 </div>
-<script src="{% static 'easygo_review/js/jquery.min.js' %}"></script>
-<script src="{% static 'easygo_review/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'review/js/jquery.min.js' %}"></script>
+<script src="{% static 'review/js/bootstrap.min.js' %}"></script>
 
 </body>
 </html>

@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'blog.apps.BlogConfig',
     'basecamp.apps.BasecampConfig', 
-    'easygo_review.apps.EasygoReviewConfig',
+    'review.apps.EasygoReviewConfig',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -209,7 +209,7 @@ COMPRESS_FILTERS = {
 HTML_MINIFY = True
 KEEP_COMMENTS_ON_MINIFYING = True
 
-LOGIN_REDIRECT_URL = '/easygo_review/'
+LOGIN_REDIRECT_URL = '/review/'
 LOGOUT_REDIRECT_URL = '/home/'
 
 CORS_ALLOWED_ORIGINS = [

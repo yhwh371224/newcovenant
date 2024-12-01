@@ -14,10 +14,7 @@ class CommentForm(forms.ModelForm):
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ('name', 'content', 'rating')
-        widgets = {
-            'rating': forms.HiddenInput(),
-            }
+        fields = ('name', 'content')        
     
     def __init__(self, *args, **kwargs):
         super(PostForm, self).__init__(*args, **kwargs)

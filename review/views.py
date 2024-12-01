@@ -24,15 +24,15 @@ def custom_login_view(request):
         if posts.exists():
             post = posts.first()  
             request.session['email'] = post.email
-            return redirect('easygo_review:easygo_review')
+            return redirect('review:review')
         else:
             error = 'This is not the email address in our system'
-    return render(request, 'easygo_review/custom_login.html', {'error': error})
+    return render(request, 'review/custom_login.html', {'error': error})
 
 
 def custom_logout_view(request):
     request.session.flush()    
-    return redirect('easygo_review:easygo_review')
+    return redirect('review:review')
 
 
 def get_authenticated_post(request):
@@ -46,18 +46,12 @@ def get_authenticated_post(request):
 
 class PostList(ListView):
     model = Post
-    template_name = 'easygo_review/post_list.html'
+    template_name = 'review/post_list.html'
     paginate_by = 7
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(PostList, self).get_context_data(**kwargs)
         context['post_count'] = Post.objects.all().count()
-
-        for post in context['object_list']:
-            if post.rating is None:
-                post.rating = 5
-
-        # send_notice_email.delay('reviews accessed', 'reviews accessed', RECIPIENT_EMAIL)
 
         authenticated_post = get_authenticated_post(self.request)
         context['authenticated_post'] = authenticated_post 
@@ -87,7 +81,7 @@ class PostCreate(View):
             form = PostForm(initial={'name': blog_post.name})  
         else:
             form = PostForm()
-        return render(request, 'easygo_review/post_form.html', {'form': form, 'form_guide': 'Please post your review'})
+        return render(request, 'review/post_form.html', {'form': form, 'form_guide': 'Please post your review'})
 
     def post(self, request, *args, **kwargs):
         form = PostForm(request.POST)
@@ -96,15 +90,11 @@ class PostCreate(View):
             if email:
                 blog_post = BlogPost.objects.filter(email=email).first()
                 form.instance.author = blog_post.name  
-                form.instance.name = blog_post.name  
-                rating = form.cleaned_data.get('rating')
-                if not (1 <= rating <= 5):
-                    form.add_error('rating', 'Rating must be between 1 and 5')
-                    return render(request, 'easygo_review/post_form.html', {'form': form, 'form_guide': 'Please post your review'})
+                form.instance.name = blog_post.name                  
                 form.save()
 
-                return redirect('/easygo_review/')
-        return render(request, 'easygo_review/post_form.html', {'form': form, 'form_guide': 'Please post your review'})
+                return redirect('/review/')
+        return render(request, 'review/post_form.html', {'form': form, 'form_guide': 'Please post your review'})
     
 
 class PostSearch(PostList):
@@ -121,7 +111,7 @@ class PostSearch(PostList):
 
 class PostDetail(DetailView):
     model = Post
-    template_name = 'easygo_review/post_detail1.html'
+    template_name = 'review/post_detail1.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -149,7 +139,7 @@ class PostDetail(DetailView):
 
 class PostUpdate(UpdateView):
     model = Post
-    template_name = 'easygo_review/post_form.html'
+    template_name = 'review/post_form.html'
     fields = ['content', 'rating']
 
     def get_context_data(self, **kwargs):
@@ -194,7 +184,7 @@ class CommentCreate(View):
             'comment_form': comment_form,
         }
 
-        return render(request, 'easygo_review/post_detail1.html', context)
+        return render(request, 'review/post_detail1.html', context)
 
     def post(self, request, pk, *args, **kwargs):
         post = Post.objects.get(pk=pk)
@@ -221,13 +211,13 @@ class CommentCreate(View):
             'user_name': user_name,
             'comment_form': comment_form,
         }
-        return render(request, 'easygo_review/post_detail1.html', context)
+        return render(request, 'review/post_detail1.html', context)
     
 
 class CommentUpdate(UpdateView):
     model = Comment
     form_class = CommentForm
-    template_name = 'easygo_review/comment_form.html'
+    template_name = 'review/comment_form.html'
 
     def get_object(self, queryset=None):
         comment = super().get_object(queryset)        
@@ -265,7 +255,7 @@ class CommentUpdate(UpdateView):
 
 class CommentDelete(DeleteView):
     model = Comment
-    template_name = 'easygo_review/comment_confirm_delete.html'
+    template_name = 'review/comment_confirm_delete.html'
 
     def get_object(self, queryset=None):
         comment = super().get_object(queryset)        
@@ -303,4 +293,4 @@ class CommentDelete(DeleteView):
 
 def index(request):
     posts = Post.objects.all()
-    return render(request, 'easygo_review/index.html', {'posts': posts})
+    return render(request, 'review/index.html', {'posts': posts})

@@ -1,0 +1,37 @@
+{% extends 'review/base_sub.html' %}
+
+{% block title %} EasyGo Reviews {% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <table>
+                    {{ form.non_field_errors }}
+                    <tr>
+                        <th>{{ form.name.label_tag }}</th>
+                        <td>{{ form.name }}</td>
+                    </tr>            
+                    <tr>
+                        <th>{{ form.content.label_tag }}</th>
+                        <td>{{ form.content|safe }}</td>
+                    </tr>
+                </table>
+                <div class="text-center"> 
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-4">
+            <a href="/static/basecamp/images/Digital-Certificate.webp">
+                <img src="/static/basecamp/images/award-badge.webp" alt="Award Badge" class="award-badge">
+              </a>
+        </div>
+    </div>
+</div>
+{{ form.media }}
+
+{% endblock %}

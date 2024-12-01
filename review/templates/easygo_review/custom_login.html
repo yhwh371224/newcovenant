@@ -16,7 +16,7 @@
         <div class="position-relative zindex-5 container pb-3 pt-sm-2">
           <div class="mx-auto" style="max-width: 460px;">
             <h3 class="text-light text-center pt-sm-2">{% trans "Sign In" %}</h3><br>
-            <form class="login text-light text-center mb-4" method="POST" action="{% url 'easygo_review:custom_login' %}">
+            <form class="login text-light text-center mb-4" method="POST" action="{% url 'review:custom_login' %}">
                 {% csrf_token %}
                 <label for="email">{% trans "Email" %}</label><br>
                 <input type="email" id="email" name="email" required><br><br><br>
