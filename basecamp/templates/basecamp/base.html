@@ -16,12 +16,25 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="/static/basecamp/css/styles.css" rel="stylesheet" />
+        <style>
+            #mainNav {
+              padding-top: 1rem;
+              padding-bottom: 1rem;
+              background-color: #5a6268 !important;
+            }
+            #services {
+                margin-top: 3rem; 
+            }
+            a {
+                color: #ad5207; /* Change this to any color you like */
+            }
+          </style>
     </head>
     <body id="page-top">
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="base_mainNav">
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand" href="/home"><img src="{% static 'basecamp/assets/img/suy_log.webp' %}" alt="새언약교회" /> <span class="logo-text">새언약교회</span></a>
+                <a class="navbar-brand" href="/home"><span class="logo-text">새언약교회</span></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars ms-1"></i>
@@ -34,10 +47,10 @@
                                 교회안내
                             </a>
                             <ul class="dropdown-menu" >
-                                <li><a class="dropdown-item" href="#services">교회소개</a></li>
-                                <li><a class="dropdown-item" href="#services">목사님소개</a></li>
-                                <li><a class="dropdown-item" href="#team">섬기는 사람들</a></li>
-                                <li><a class="dropdown-item" href="#contact">교회위치 및 연락처</a></li>
+                                <li><a class="dropdown-item" href="/home/#about">교회소개</a></li>
+                                <li><a class="dropdown-item" href="/home/#team">목사님소개</a></li>
+                                <li><a class="dropdown-item" href="/home/#team">섬기는 사람들</a></li>
+                                <li><a class="dropdown-item" href="/home/#contact">교회위치 및 연락처</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
@@ -54,12 +67,12 @@
                                 하나님의 말씀
                             </a>
                             <ul class="dropdown-menu" >
-                                <li><a class="dropdown-item" href="#words">주일설교</a></li>
-                                <li><a class="dropdown-item" href="#contact">목사님 칼럼</a></li>
+                                <li><a class="dropdown-item" href="/home/#words">주일설교</a></li>
+                                <li><a class="dropdown-item" href="/home/#contact">목사님 칼럼</a></li>
                             </ul>
                         </li>     
-                        <li class="nav-item"><a class="nav-link" href="#team">섬기는분들</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#photos">갤러리</a></li>                        
+                        <li class="nav-item"><a class="nav-link" href="/home/#team">섬기는분들</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/home/#photos">갤러리</a></li>                        
                     </ul>
                 </div>
             </div>
