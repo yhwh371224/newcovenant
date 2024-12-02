@@ -39,7 +39,7 @@ class BulletinListView(ListView):
     template_name = 'bulletins/bulletin_list.html'
     context_object_name = 'bulletins'
     queryset = Bulletin.objects.all().order_by('-date')[:26] 
-    paginate_by = 6 
+    paginate_by = 4 
     login_url = '/login/'
 
     def get_context_data(self, **kwargs):

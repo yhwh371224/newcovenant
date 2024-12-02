@@ -24,7 +24,7 @@
                     <div class="bulletin-info">
                         <p class="bulletin-date">날짜: {{ bulletin.date|date:"Y년 m월 d일" }}
                         {% if bulletin.pdf_file %}
-                            <a href="{{ bulletin.pdf_file.url }}" target="_blank" class="btn-view-bulletin">&nbsp;주보 보기</a></p>
+                            <a href="{{ bulletin.pdf_file.url }}" target="_blank"  >&nbsp;주보 보기</a></p>
                         {% else %}
                             <p class="text-danger">PDF 파일이 없습니다.</p>
                         {% endif %}
