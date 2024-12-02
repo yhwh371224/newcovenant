@@ -1,0 +1,10 @@
+{% extends 'basecamp/base.html' %}
+
+{% block content %}
+    <h3>주보 업로드</h3>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">주보 업로드</button>
+    </form>
+{% endblock %}

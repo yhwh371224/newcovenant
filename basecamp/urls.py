@@ -9,7 +9,7 @@ urlpatterns = [
     path('home/', views.home, name='home'),    
     path('information/', views.information, name='information'), 
     path('introduction/', views.introduction, name='introduction'),
-    path('church_bulletin/', views.church_bulletin, name='church_bulletin'),  
+    path('bulletin_list/', views.bulletin_list, name='bulletin_list'),  
     path('meetings/', views.meetings, name='meetings'),  
     path('meeting_point/', views.meeting_point, name='meeting_point'),     
     path('payment_options/', views.payment_options, name='payment_options'),    
@@ -21,6 +21,7 @@ urlpatterns = [
     path('location/', views.location, name='location'),
     path('pickup/', views.pickup, name='pickup'),
     path('worship_music/', views.worship_music, name='worship_music'),
+
 ]
 
 

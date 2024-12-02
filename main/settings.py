@@ -145,7 +145,7 @@ USE_TZ = True
 AUTHENTICATION_BACKENDS = (    
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
-    'blog.auth_backends.PostEmailBackend',
+
 )
 
 SOCIALACCOUNT_PROVIDERS = {
@@ -207,8 +207,9 @@ COMPRESS_FILTERS = {
 HTML_MINIFY = True
 KEEP_COMMENTS_ON_MINIFYING = True
 
-LOGIN_REDIRECT_URL = '/review/'
-LOGOUT_REDIRECT_URL = '/home/'
+LOGIN_URL = 'account_login'
+LOGIN_REDIRECT_URL = '/blog/upload/'
+LOGOUT_REDIRECT_URL = '/blog/bulletins/'
 
 CORS_ALLOWED_ORIGINS = [
     "https://suy.net.au",

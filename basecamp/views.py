@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from blog.models import Bulletin, Column, Members
 
 
 def index(request): return redirect('/home/')
@@ -25,8 +26,8 @@ def introduction(request):
 
 
 
-def church_bulletin(request):     
-    return render(request, 'basecamp/church_bulletin.html')
+def bulletin_list(request):     
+    return render(request, 'basecamp/bulletin_list.html')
 
 
 def meetings(request):     
@@ -77,5 +78,8 @@ def worship_music(request):
     return render(request, 'basecamp/worship_music.html')
 
 
+# def bulletin_list(request):
+#     bulletins = Bulletin.objects.all()
+#     return render(request, 'bulletin_list.html', {'bulletins': bulletins})
 
 

@@ -1,6 +1,5 @@
 from django.contrib import admin
-from django.contrib.admin import AdminSite
-from .models import Members, Column
+from .models import Members, Column, Bulletin
 
 
 class MembersAdmin(admin.ModelAdmin):
@@ -13,12 +12,10 @@ class ColumnAdmin(admin.ModelAdmin):
     search_fields = ['title', 'author', 'created', 'updated']
 
 
-class MyAdminSite(AdminSite):
-    site_header = 'NewCovenant administration'
+class BulletinAdmin(admin.ModelAdmin):
+    list_display = ('title', 'date', 'created')
 
-admin_site = MyAdminSite(name='horeb_yhwh')
-admin_site.register(Members, MembersAdmin)
-admin_site.register(Column, ColumnAdmin)
 
 admin.site.register(Members, MembersAdmin)
 admin.site.register(Column, ColumnAdmin)
+admin.site.register(Bulletin, BulletinAdmin)

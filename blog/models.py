@@ -50,11 +50,13 @@ class Column(models.Model):
 
 class Bulletin(models.Model):
     title = models.CharField(max_length=100, default='교회주보')  
-    date = models.DateField(blank=True, null=True)  
-    pdf_file = models.FileField(upload_to='bulletins/', blank=True)  
+    date = models.DateField(blank=True, null=True, verbose_name='주보 날짜')  
+    pdf_file = models.FileField(upload_to='bulletins/', null=True, blank=True, verbose_name='주보 PDF 파일')    
     created = models.DateTimeField(auto_now_add=True)  
 
     class Meta:
+        verbose_name = '주보'
+        verbose_name_plural = '주보들'
         ordering = ['-date']  
 
     def __str__(self):
