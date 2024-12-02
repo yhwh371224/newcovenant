@@ -8,19 +8,19 @@
         </div>
 
         <!-- 파일 업로드 폼 -->
-        <div class="bulletin-upload-form mt-4">
-                <form method="POST" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {{ form.as_p }}  <!-- 폼 렌더링 -->
-                    <button type="submit" class="btn btn-primary">주보 업로드</button>
-                </form>
-        </div>
-
+        {% if user.is_authenticated %}
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}  <!-- 폼 렌더링 -->
+            <button type="submit" class="btn btn-primary">주보업로드</button>
+        </form>
+        {% else %}
+            <a href="{% url 'account_login' %}?next={% url 'bulletin_upload' %}" class="btn btn-primary">주보업로드</a>
+        {% endif %}
         <!-- 주보 목록 -->
         <div class="bulletin-list mt-4">
             {% for bulletin in bulletins %}
-                <div class="bulletin-item">
-                    <h5>{{ bulletin.title }}</h5>
+                <div class="bulletin-item">                    
                     <p>날짜: {{ bulletin.date }}</p>
                     {% if bulletin.pdf_file %}
                         <a href="{{ bulletin.pdf_file.url }}" target="_blank" class="btn btn-primary">주보 보기</a>
