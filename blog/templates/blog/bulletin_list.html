@@ -22,9 +22,9 @@
             {% for bulletin in bulletins %}
                 <div class="bulletin-item">
                     <div class="bulletin-info">
-                        <p class="bulletin-date">날짜: {{ bulletin.date }}
+                        <p class="bulletin-date">날짜: {{ bulletin.date|date:"Y년 m월 d일" }}
                         {% if bulletin.pdf_file %}
-                            <a href="{{ bulletin.pdf_file.url }}" target="_blank" class="btn-view-bulletin">주보 보기</a></p>
+                            <a href="{{ bulletin.pdf_file.url }}" target="_blank" class="btn-view-bulletin">&nbsp;주보 보기</a></p>
                         {% else %}
                             <p class="text-danger">PDF 파일이 없습니다.</p>
                         {% endif %}
@@ -35,18 +35,18 @@
             {% endfor %}
         </div>     
         <!-- Pagination Controls -->
-        <div class="pagination mt-4 text-center">
+        <div class="pagination mt-4 text-center" style="font-size: small;">
             <span class="page-links">
                 {% if page_obj.has_previous %}
-                    <a href="?page=1">&laquo; 가장 최근</a>
-                    <a href="?page={{ page_obj.previous_page_number }}">next</a>
+                    <a href="?page=1">[처음페이지]&nbsp;&nbsp;</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">next&nbsp;&nbsp;</a>
                 {% endif %}
                 
                 <span class="current-page">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
                 
                 {% if page_obj.has_next %}
-                    <a href="?page={{ page_obj.next_page_number }}">previous</a>
-                    <a href="?page={{ page_obj.paginator.num_pages }}">가장 오래된 &raquo;</a>
+                    <a href="?page={{ page_obj.next_page_number }}">&nbsp;&nbsp;previous</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">&nbsp;&nbsp;[끝페이지]</a>
                 {% endif %}
             </span>
         </div>   
