@@ -5,6 +5,7 @@ from django.views.generic import ListView, DetailView
 from django.core.paginator import Paginator
 from .models import Members, Column, Bulletin
 from .forms import BulletinForm
+from django.urls import reverse_lazy
 
 
 
@@ -39,13 +40,18 @@ class BulletinListView(ListView):
     context_object_name = 'bulletins'
     login_url = '/login/'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form'] = BulletinForm()
+        return context
+
     def post(self, request, *args, **kwargs):
         form = BulletinForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('bulletin_list')  
-        return self.get(request, *args, **kwargs)
-
+            return redirect('bulletin_list')
+        return self.render_to_response(self.get_context_data(form=form))
+    
 
 class BulletinDetailView(DetailView):
     model = Bulletin
@@ -57,7 +63,7 @@ class BulletinUploadView(LoginRequiredMixin, CreateView):
     model = Bulletin
     form_class = BulletinForm
     template_name = 'blog/bulletin_upload.html'
-    success_url = '/blog/bulletins/'  
+    success_url = reverse_lazy('bulletin_list') 
 
     def form_valid(self, form):        
         return super().form_valid(form)

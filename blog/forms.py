@@ -5,4 +5,4 @@ from .models import Bulletin
 class BulletinForm(forms.ModelForm):
     class Meta:
         model = Bulletin
-        fields = ['title', 'date', 'pdf_file']
+        fields = ['date', 'pdf_file']

@@ -13,7 +13,7 @@ class ColumnAdmin(admin.ModelAdmin):
 
 
 class BulletinAdmin(admin.ModelAdmin):
-    list_display = ('title', 'date', 'created')
+    list_display = ('date', 'created')
 
 
 admin.site.register(Members, MembersAdmin)

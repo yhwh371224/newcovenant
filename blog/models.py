@@ -48,8 +48,7 @@ class Column(models.Model):
         return self.title
     
 
-class Bulletin(models.Model):
-    title = models.CharField(max_length=100, default='교회주보')  
+class Bulletin(models.Model): 
     date = models.DateField(blank=True, null=True, verbose_name='주보 날짜')  
     pdf_file = models.FileField(upload_to='bulletins/', null=True, blank=True, verbose_name='주보 PDF 파일')    
     created = models.DateTimeField(auto_now_add=True)  

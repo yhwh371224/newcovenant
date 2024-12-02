@@ -3,6 +3,7 @@ import os
 
 from decouple import config
 from datetime import datetime, timedelta 
+from django.urls import reverse_lazy
 
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -208,8 +209,8 @@ HTML_MINIFY = True
 KEEP_COMMENTS_ON_MINIFYING = True
 
 LOGIN_URL = 'account_login'
-LOGIN_REDIRECT_URL = '/blog/upload/'
-LOGOUT_REDIRECT_URL = '/blog/bulletins/'
+LOGIN_REDIRECT_URL = reverse_lazy('bulletin_upload')
+LOGOUT_REDIRECT_URL = reverse_lazy('bulletin_list')
 
 CORS_ALLOWED_ORIGINS = [
     "https://suy.net.au",
