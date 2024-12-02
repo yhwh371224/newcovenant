@@ -57,3 +57,20 @@ def workers(request):
     return render(request, 'basecamp/workers.html')
 
 
+def column(request):
+    return render(request, 'basecamp/column.html')
+
+
+def gallery(request):
+    return render(request, 'basecamp/gallery.html')
+
+
+def location(request):
+    return render(request, 'basecamp/location.html')
+
+
+def pickup(request):
+    return render(request, 'basecamp/pickup.html')
+
+
+

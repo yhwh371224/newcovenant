@@ -16,6 +16,10 @@ urlpatterns = [
     path('payonline/', views.payonline, name='payonline'),
     path('payonline_stripe/', views.payonline_stripe, name='payonline_stripe'),    
     path('workers/', views.workers, name='workers'), 
+    path('column/', views.column, name='column'),
+    path('gallery/', views.gallery, name='gallery'),
+    path('location/', views.location, name='location'),
+    path('pickup/', views.pickup, name='pickup'),
 ]
 
 
