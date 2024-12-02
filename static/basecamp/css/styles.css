@@ -11397,4 +11397,59 @@ section#contact form#contactForm :-ms-input-placeholder {
       padding: 15px;
   }
 }
+/* Container to style the bulletin list */
+.bulletin-list {
+  margin-top: 0px;
+  padding: 0;
+}
+
+/* Each individual bulletin item */
+.bulletin-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1px;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 1px;
+}
+
+/* Style for the date section */
+.bulletin-date {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Style for the button */
+.btn-view-bulletin {
+  font-size: 8px;
+  padding: 4px 8px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.btn-view-bulletin:hover {
+  background-color: #0056b3;
+}
+/* For the empty message */
+.text-danger {
+  font-size: 8px;
+  color: red;
+}
+
+/* Responsiveness adjustments (optional, if needed) */
+@media (max-width: 768px) {
+  .bulletin-item {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .bulletin-info {
+      width: 100%;
+  }
+}
 
