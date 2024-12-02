@@ -73,4 +73,9 @@ def pickup(request):
     return render(request, 'basecamp/pickup.html')
 
 
+def worship_music(request):
+    return render(request, 'basecamp/worship_music.html')
+
+
+
 

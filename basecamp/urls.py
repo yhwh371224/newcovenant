@@ -20,6 +20,7 @@ urlpatterns = [
     path('gallery/', views.gallery, name='gallery'),
     path('location/', views.location, name='location'),
     path('pickup/', views.pickup, name='pickup'),
+    path('worship_music/', views.worship_music, name='worship_music'),
 ]
 
 
