@@ -59,6 +59,6 @@ class Bulletin(models.Model):
         ordering = ['-date']  
 
     def __str__(self):
-        return f"{self.title} - {self.date}"
+        return f"{self.date}"
 
 
