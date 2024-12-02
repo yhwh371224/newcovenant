@@ -15,6 +15,7 @@ urlpatterns = [
     path('payment_options/', views.payment_options, name='payment_options'),    
     path('payonline/', views.payonline, name='payonline'),
     path('payonline_stripe/', views.payonline_stripe, name='payonline_stripe'),    
+    path('workers/', views.workers, name='workers'), 
 ]
 
 

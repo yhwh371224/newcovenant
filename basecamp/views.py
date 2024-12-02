@@ -53,3 +53,7 @@ def sitemap(request):
     return render(request, 'basecamp/sitemap.xml')
 
 
+def workers(request): 
+    return render(request, 'basecamp/workers.html')
+
+
