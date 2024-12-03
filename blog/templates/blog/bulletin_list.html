@@ -15,7 +15,7 @@
             <button type="submit" class="btn btn-primary">주보업로드</button>
         </form>
         {% else %}
-            <a href="{% url 'account_login' %}?next={% url 'bulletin_upload' %}" class="btn btn-primary">주보업로드</a>
+            <a href="{% url 'account_login' %}?next={% url 'bulletin_upload' %}" class="btn btn-success">주보업로드</a>
         {% endif %}
         <!-- 주보 목록 -->
         <div class="bulletin-list mt-4">
