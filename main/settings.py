@@ -92,6 +92,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'context_processors.add_custom_context',
             ],
         },
     },
@@ -146,6 +147,7 @@ USE_TZ = True
 AUTHENTICATION_BACKENDS = (    
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
+    'blog.auth_backends.MembersEmailBackend',
 
 )
 

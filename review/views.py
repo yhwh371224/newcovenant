@@ -9,36 +9,37 @@ from django.views.generic import ListView, DetailView, UpdateView, CreateView, D
 from django.views.decorators.csrf import csrf_exempt
 from django.db.models import Q
 from django.http import JsonResponse
+from django.contrib.auth import authenticate, login, logout
 
 from .models import Post, Comment
 from .forms import CommentForm, PostForm
-from .models import Post 
+from blog.models import Members 
 from main.settings import RECIPIENT_EMAIL
 
 
 def custom_login_view(request):
     error = None
     if request.method == 'POST':
-        email = request.POST['email']
-        posts = Post.objects.filter(email=email)
-        if posts.exists():
-            post = posts.first()  
-            request.session['email'] = post.email
-            return redirect('review:review')
+        email = request.POST.get('email')
+        user = authenticate(request, email=email)  
+        if user:
+            login(request, user)  
+            return redirect('review:review')  
         else:
             error = 'This is not the email address in our system'
+
     return render(request, 'review/custom_login.html', {'error': error})
 
 
 def custom_logout_view(request):
-    request.session.flush()    
+    logout(request)  # 세션 비우기    
     return redirect('review:review')
 
 
 def get_authenticated_post(request):
     email = request.session.get('email')
     if email:
-        posts = Post.objects.filter(email=email)
+        posts = Members.objects.filter(email=email)
         if posts.exists():
             return posts.first()  
     return None
@@ -58,7 +59,7 @@ class PostList(ListView):
 
         email = self.request.session.get('email', None)
         if email:
-            blog_post = Post.objects.filter(email=email).first()  
+            blog_post = Members.objects.filter(email=email).first()  
             if blog_post:
                 user_name = blog_post.name
                 context['user_name'] = user_name
@@ -75,25 +76,22 @@ class PostList(ListView):
 
 class PostCreate(View):
     def get(self, request, *args, **kwargs):
-        email = request.session.get('email')  
-        if email:
-            blog_post = Post.objects.filter(email=email).first()
-            form = PostForm(initial={'name': blog_post.name})  
+        if request.user.is_authenticated:  # 로그인된 사용자 확인
+            form = PostForm(initial={'name': request.user.name})
         else:
             form = PostForm()
         return render(request, 'review/post_form.html', {'form': form, 'form_guide': 'Please post your review'})
 
     def post(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return redirect('review:custom_login')  # 로그인 페이지로 리다이렉트
+
         form = PostForm(request.POST)
         if form.is_valid():
-            email = request.session.get('email')  
-            if email:
-                blog_post = Post.objects.filter(email=email).first()
-                form.instance.author = blog_post.name  
-                form.instance.name = blog_post.name                  
-                form.save()
-
-                return redirect('/review/')
+            form.instance.author = request.user.name
+            form.instance.name = request.user.name
+            form.save()
+            return redirect('/review/')
         return render(request, 'review/post_form.html', {'form': form, 'form_guide': 'Please post your review'})
     
 
@@ -125,7 +123,7 @@ class PostDetail(DetailView):
         context['authenticated_post'] = authenticated_post 
 
         if email:
-            blog_post = Post.objects.filter(email=email).first()  
+            blog_post = Members.objects.filter(email=email).first()  
             if blog_post:
                 user_name = blog_post.name
                 context['user_name'] = user_name
@@ -152,7 +150,7 @@ class PostUpdate(UpdateView):
         context['authenticated_post'] = authenticated_post 
 
         if email:
-            blog_post = Post.objects.filter(email=email).first()  
+            blog_post = Members.objects.filter(email=email).first()  
             if blog_post:
                 user_name = blog_post.name
                 context['user_name'] = user_name
@@ -171,7 +169,7 @@ class CommentCreate(View):
 
         user_name = None
         if email:
-            blog_post = Post.objects.filter(email=email).first()
+            blog_post = Members.objects.filter(email=email).first()
             if blog_post:
                 user_name = blog_post.name
 
@@ -192,7 +190,7 @@ class CommentCreate(View):
 
         user_name = None
         if email:
-            blog_post = Post.objects.filter(email=email).first()
+            blog_post = Members.objects.filter(email=email).first()
             if blog_post:
                 user_name = blog_post.name
 
@@ -225,7 +223,7 @@ class CommentUpdate(UpdateView):
         user_name = None
 
         if email:
-            blog_post = Post.objects.filter(email=email).first()
+            blog_post = Members.objects.filter(email=email).first()
             if blog_post:
                 user_name = blog_post.name
 
@@ -240,7 +238,7 @@ class CommentUpdate(UpdateView):
         user_name = None
 
         if email:
-            blog_post = Post.objects.filter(email=email).first()
+            blog_post = Members.objects.filter(email=email).first()
             if blog_post:
                 user_name = blog_post.name
 
@@ -263,7 +261,7 @@ class CommentDelete(DeleteView):
         user_name = None
 
         if email:
-            blog_post = Post.objects.filter(email=email).first()
+            blog_post = Members.objects.filter(email=email).first()
             if blog_post:
                 user_name = blog_post.name
 
@@ -278,7 +276,7 @@ class CommentDelete(DeleteView):
         user_name = None
 
         if email:
-            blog_post = Post.objects.filter(email=email).first()
+            blog_post = Members.objects.filter(email=email).first()
             if blog_post:
                 user_name = blog_post.name
 
