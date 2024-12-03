@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'blog.apps.BlogConfig',
     'basecamp.apps.BasecampConfig', 
-    'review.apps.EasygoReviewConfig',
+    'review.apps.ReviewConfig',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
