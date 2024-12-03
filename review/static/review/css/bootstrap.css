@@ -6100,6 +6100,9 @@ a.close.disabled {
 .modal-header .close {
   padding: 1rem 1rem;
   margin: -1rem -1rem -1rem auto;
+  outline: none; /* 포커스 시 나타나는 박스라인 제거 */
+  box-shadow: none; /* 클릭 시 그림자 제거 */
+  border: none; /* 기본 테두리 제거 */
 }
 
 .modal-title {
@@ -10511,6 +10514,9 @@ a.text-dark:hover, a.text-dark:focus {
 .modal .close,
 .toast .close {
   color: #000;
+  outline: none; /* 포커스 시 나타나는 박스라인 제거 */
+  box-shadow: none; /* 클릭 시 그림자 제거 */
+  border: none; /* 기본 테두리 제거 */
 }
 
 .modal .close:not(:disabled):not(.disabled):hover, .modal .close:not(:disabled):not(.disabled):focus,

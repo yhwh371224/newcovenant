@@ -8,18 +8,17 @@
         </div>
 
         <div class="row">
-            <div class="col-md-8" id="main-div">
+            <div class="col-md-12" id="main-div">
                 <br/>
                 <div class="row">
                     <div class="col-md-8" id="main-div">
-                        <h5 id="easygo_review-list-title">
+                        <h5 id="review-list-title">
                             <br/>
-                            <div></div>                
+                            <div>.</div>                
                         </h5>
                     </div>
                     <div class="col-md-4" id="side-div">
-                        <h5 id="easygo_review-list-title">
-                            <br/>
+                        <h5 id="review-list-title">
                             {% if email %}
                                 <button class="btn btn-primary btn-sm float-right" onclick="location.href='/review/create/'">New Post</button>                            
                             {% endif %}   
@@ -32,26 +31,17 @@
                     {% for post in object_list %}
                         <div class="card mb-4" id="post-card-{{ post.pk }}">
                             <div class="card-header text-muted">
-                                Posted by {{ post.name }} on {{ post.date }}
+                                Title: {{ post.title }} &nbsp;&nbsp;posted by {{ post.name }}&nbsp;&nbsp;&nbsp;{{ post.date }}
                             </div>
                             <div class="card-body">
-                                <p class="card-text">{{ post.get_markdown_content | striptags | safe }}</p>
+                                <p class="card-text">{{ post.get_markdown_content|striptags|safe|truncatewords:50 }}</p>
                                 <br/>
-                                {% if post.author %}
+                                {% if post.name %}
                                     <p class="card-text">
-                                        <a href="{{ post.get_absolute_url }}" class="btn btn-primary" id="read-more-post-{{ post.pk }}">Read More &rarr;</a>
+                                        <a href="{{ post.get_absolute_url }}" class="btn btn-secondary" id="read-more-post-{{ post.pk }}">Read More &rarr;</a>
                                     </p>
                                 {% endif %}
-                            </div>
-                            {% if post.author %}
-                                <div class="card-footer text-muted">
-                                    {{ post.name }} left this review directly on our website
-                                </div>
-                            {% else %}
-                                <div class="card-footer text-muted">
-                                    {{ post.name }}'s original review on Google >>>&nbsp;<a href="{{ post.link }}" target="_blank"> here</a>
-                                </div>
-                            {% endif %}
+                            </div>                            
                         </div>
                     {% endfor %}
 
@@ -83,10 +73,10 @@
                 {% endif %}
             </div>
 
-            <div class="col-md-3" id="side-div">
+            <!-- <div class="col-md-3" id="side-div">
                 <h5 class="side-h"><br/></h5>
                 <h5 class="side-h"><br/></h5>
-                <!-- Search Widget -->
+                
                 <div class="search-widget">                    
                     <div class="input-group">
                         <input type="text" id="search-input" onkeyup="wait_for_enterkey()" class="form-control" placeholder="단어로 찾으세요..."/>
@@ -102,7 +92,7 @@
                         alert("{{ search_error|escapejs }}");
                     </script>
                 {% endif %}
-            </div>
+            </div> -->
         </div>
     </div>
 </section>
