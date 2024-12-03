@@ -7,15 +7,15 @@
     <!-- Author -->
     <div class="low" style="display: flex; align-items: center; ">
         <div><br>
-            <span class="bold-title">{{ object.title }}</span>            
-            <span style="margin-left: 10px;">posted on {{ object.date }}</span>
+            <span style="color: #3E2723; font-weight: bold;">{{ object.title }}</span>            
+            <span style="margin-left: 10px; ">posted on {{ object.date }}</span>
         </div>
         
         {% if user_name == object.name %}
             <button type="button" class="btn btn-primary" style="margin-left: auto;" onclick="location.href='{{ object.get_update_url }}'">EDIT REVIEW</button>
         {% endif %}
     </div>
-    <br/>    
+    <br><br>    
     <!-- Post Content -->
     {{ object.get_markdown_content | safe }}
 
