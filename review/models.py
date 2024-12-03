@@ -8,6 +8,7 @@ import datetime
 class Post(models.Model):
     content = MarkdownxField()
     name = models.CharField(max_length=100, blank=False, null=True)
+    title = models.CharField(max_length=100, blank=False, null=True)
     date = models.DateField(blank=True, null=True, default=datetime.date.today)
     created = models.DateTimeField(auto_now_add=True)
     author = models.CharField(max_length=100, blank=True, null=True)

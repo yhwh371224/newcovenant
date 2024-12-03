@@ -4,7 +4,7 @@ from .models import Post, Comment
 
 
 class PostAdmin(admin.ModelAdmin):
-    list_display = ['date', 'name', 'created']
+    list_display = ['date', 'name', 'title', 'created']
     search_fields = ['date', 'name']
 
 
@@ -14,11 +14,7 @@ class CommentAdmin(admin.ModelAdmin):
 
 
 class MyAdminSite(AdminSite):
-    site_header = 'EasyGo administration'
-
-admin_site = MyAdminSite(name='horeb_yhwh')
-admin_site.register(Post, PostAdmin)
-admin_site.register(Comment, CommentAdmin)
+    site_header = 'NewCovenant administration'
 
 
 admin.site.register(Comment, CommentAdmin)

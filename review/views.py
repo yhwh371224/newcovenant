@@ -140,7 +140,7 @@ class PostDetail(DetailView):
 class PostUpdate(UpdateView):
     model = Post
     template_name = 'review/post_form.html'
-    fields = ['content', 'rating']
+    fields = ['content', 'title']
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
