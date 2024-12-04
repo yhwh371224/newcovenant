@@ -4,7 +4,7 @@
 <section class="page-section" id="subpages">
     <div class="container">
         <div class="text-center">
-            <h3>Gallery</h3>
+            <h3>새언약교회 사진첩</h3>
         </div>
 
         <div class="row">
@@ -14,13 +14,13 @@
                     <div class="col-md-8" id="main-div">
                         <h5 id="gallery-list-title">
                             <br/>
-                            <div>.</div>                
+                            <div></div>                
                         </h5>
                     </div>
                     <div class="col-md-4" id="side-div">
                         <h5 id="gallery-list-title">
                             {% if user.is_authenticated %}
-                                <button class="btn btn-primary btn-sm float-right" onclick="location.href='/gallery/create/'">사진올리기</button>                            
+                                <button class="btn btn-success btn-sm float-right" onclick="location.href='/gallery/create/'">사진올리기</button>                            
                             {% endif %}   
                         </h5>
                     </div>
@@ -39,7 +39,7 @@
                     {% endif %}
     
                     <div class="card-body">                        
-                        <h2 class="card-title">{{ p.title | striptags | truncatewords_html:8 }}</h2>
+                        <h3 class="card-title">{{ p.title | striptags | truncatewords_html:8 }}</h3>
                         <p class="card-text">{{ p.get_markdown_content | striptags | truncatewords_html:50}}</p>
                         <br/>    
                         <a href="{{ p.get_absolute_url }}" class="btn btn-primary" id="read-more-post-{{ p.pk }}">Read More &rarr;</a>
@@ -75,7 +75,7 @@
                         </ul>
                     {% endif %}
                 {% else %}
-                    <h5>No gallery</h5>
+                    <h5>No Photos</h5>
                 {% endif %}
             </div>
         </div>

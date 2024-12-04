@@ -48,7 +48,7 @@ class GalleryDetail(DetailView):
 class GalleryUpdate(LoginRequiredMixin, UpdateView):
     model = Gallery
     template_name = 'gallery/gallery_form.html'
-    fields = ['content', 'title']
+    fields = ['date', 'title']
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

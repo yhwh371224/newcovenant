@@ -1,7 +1,8 @@
+import datetime
 from django.db import models
 from markdownx.models import MarkdownxField
 from markdownx.utils import markdown
-import datetime
+
 
 
 class Post(models.Model):

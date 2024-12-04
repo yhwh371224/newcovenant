@@ -22,7 +22,7 @@ class MemberDetailView(DetailView):
 
 class BulletinListView(ListView):
     model = Bulletin
-    template_name = 'bulletins/bulletin_list.html'
+    template_name = 'blog/bulletin_list.html'
     context_object_name = 'bulletins'
     queryset = Bulletin.objects.all().order_by('-date')
     paginate_by = 4 
@@ -30,14 +30,16 @@ class BulletinListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['form'] = BulletinForm()
+        context['form'] = BulletinForm()  # 폼을 컨텍스트에 추가
         return context
 
     def post(self, request, *args, **kwargs):
-        form = BulletinForm(request.bulletin, request.FILES)
+        form = BulletinForm(request.POST, request.FILES)  
+        
         if form.is_valid():
             form.save()
-            return redirect('bulletin_list')
+            return redirect('bulletin_list')  
+
         return self.render_to_response(self.get_context_data(form=form))
     
 
