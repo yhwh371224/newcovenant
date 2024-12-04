@@ -33,17 +33,9 @@
                         <li><a class="dropdown-item" href="/blog/bulletins">교회주보</a></li>
                         <li><a class="dropdown-item" href="/worship_music">찬양악보</a></li>
                     </ul>
-                </li>     
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-bs-toggle="dropdown">
-                        하나님의 말씀
-                    </a>
-                    <ul class="dropdown-menu" >
-                        <li><a class="dropdown-item" href="/home/#words">주일설교</a></li>
-                        <li><a class="dropdown-item" href="/review">목사님 칼럼</a></li>
-                    </ul>
-                </li>                             
-                <li class="nav-item"><a class="nav-link" href="/gallery">갤러리</a></li>  
+                </li>         
+                <li class="nav-item"><a class="nav-link" href="/gallery">갤러리</a></li>
+                <li class="nav-item"><a class="nav-link text-info" data-target="#loginModal">For writing >></a></li>    
                 <ul class="nav navbar-nav ml-auto">                
                     {% if user.is_authenticated %}
                         <li class="nav-item dropdown">
@@ -54,7 +46,7 @@
                         </li>
                     {% else %}
                         <li class="nav-item">
-                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#loginModal">
+                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#loginModal">
                                 Log in 
                             </button>
                         </li>
