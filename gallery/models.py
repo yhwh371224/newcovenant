@@ -13,7 +13,7 @@ class Gallery(models.Model):
         ordering = ['-created', ]
 
     def __str__(self):
-        return '{} :: {}'.format(self.title, self.author)
+        return '{}'.format(self.title)
 
     def get_absolute_url(self):
         return '/gallery/{}/'.format(self.pk)
@@ -21,8 +21,6 @@ class Gallery(models.Model):
     def get_update_url(self):
         return self.get_absolute_url() + 'update/'
 
-    def get_markdown_content(self):
-        return markdown(self.content)
 
 
 

@@ -9,4 +9,5 @@ class GalleryForm(forms.ModelForm):
     
     def __init__(self, *args, **kwargs):
         super(GalleryForm, self).__init__(*args, **kwargs)
-        self.fields['name'].widget.attrs['readonly'] = True
+        self.fields['title'].widget.attrs['readonly'] = True
+        self.fields['date'].widget.attrs['class'] = 'datepicker' 

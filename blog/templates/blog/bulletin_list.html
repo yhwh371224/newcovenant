@@ -12,7 +12,7 @@
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}  <!-- 폼 렌더링 -->
-            <button type="submit" class="btn btn-primary">주보업로드</button>
+            <button type="submit" class="btn btn-success">주보업로드</button>
         </form>
         {% else %}
             <a href="{% url 'account_login' %}?next={% url 'bulletin_upload' %}" class="btn btn-success">주보업로드</a>

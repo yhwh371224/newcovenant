@@ -4,7 +4,7 @@
 <section class="page-section" id="subpages">
     <div class="container">
         <div class="text-center">
-            <h3>설교문 및 칼럼</h3>
+            <h3>Gallery</h3>
         </div>
 
         <div class="row">
@@ -19,8 +19,8 @@
                     </div>
                     <div class="col-md-4" id="side-div">
                         <h5 id="gallery-list-title">
-                            {% if email %}
-                                <button class="btn btn-primary btn-sm float-right" onclick="location.href='/gallery/create/'">New gallery</button>                            
+                            {% if user.is_authenticated %}
+                                <button class="btn btn-primary btn-sm float-right" onclick="location.href='/gallery/create/'">사진올리기</button>                            
                             {% endif %}   
                         </h5>
                     </div>
@@ -28,22 +28,28 @@
                 <br/>
 
                 {% if object_list %}
-                    {% for gallery in object_list %}
-                        <div class="card mb-4" id="gallery-card-{{ gallery.pk }}">
-                            <div class="card-header text-muted">
-                                Title: {{ gallery.title }} &nbsp;&nbsp;galleryed by {{ gallery.name }}&nbsp;&nbsp;&nbsp;{{ gallery.date }}
-                            </div>
-                            <div class="card-body">
-                                <p class="card-text">{{ gallery.get_markdown_content|striptags|safe|truncatewords:50 }}</p>
-                                <br/>
-                                {% if gallery.name %}
-                                    <p class="card-text">
-                                        <a href="{{ gallery.get_absolute_url }}" class="btn btn-secondary" id="read-more-gallery-{{ gallery.pk }}">Read More &rarr;</a>
-                                    </p>
-                                {% endif %}
-                            </div>                            
-                        </div>
-                    {% endfor %}
+                {% for p in object_list %}
+                <!-- Blog Post -->
+                <div class="card mb-4" id="post-card-{{ p.pk }}">
+    
+                    {% if p.head_image %}
+                        <img class="card-img-top" src="{{ p.head_image.url }}" alt="Card image cap">
+                    {% else %}
+                        <img class="card-img-top" src="https://picsum.photos/700/300/?random" alt="Card image cap">
+                    {% endif %}
+    
+                    <div class="card-body">                        
+                        <h2 class="card-title">{{ p.title | striptags | truncatewords_html:8 }}</h2>
+                        <p class="card-text">{{ p.get_markdown_content | striptags | truncatewords_html:50}}</p>
+                        <br/>    
+                        <a href="{{ p.get_absolute_url }}" class="btn btn-primary" id="read-more-post-{{ p.pk }}">Read More &rarr;</a>
+                    </div>
+                    <div class="card-footer text-muted">
+                        Posted on {{ p.created }} by
+                        <a href="#">{{ p.author }}</a>
+                    </div>
+                </div>
+                {% endfor %}
 
                     {% if is_paginated %}
                         <ul class="pagination justify-content-center mb-4">

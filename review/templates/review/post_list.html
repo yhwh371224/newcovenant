@@ -6,27 +6,15 @@
         <div class="text-center">
             <h3>설교문 및 칼럼</h3>
         </div>
-
+        {% if user.is_authenticated %}
+            <div class="d-flex justify-content-end mb-3">
+                <a href="{% url 'review:review_create' %}" class="btn btn-success">글쓰기</a>
+            </div>
+        {% endif %}
         <div class="row">
             <div class="col-md-12" id="main-div">
+                <br/>                
                 <br/>
-                <div class="row">
-                    <div class="col-md-8" id="main-div">
-                        <h5 id="review-list-title">
-                            <br/>
-                            <div>.</div>                
-                        </h5>
-                    </div>
-                    <div class="col-md-4" id="side-div">
-                        <h5 id="review-list-title">
-                            {% if email %}
-                                <button class="btn btn-primary btn-sm float-right" onclick="location.href='/review/create/'">New Post</button>                            
-                            {% endif %}   
-                        </h5>
-                    </div>
-                </div>
-                <br/>
-
                 {% if object_list %}
                     {% for post in object_list %}
                         <div class="card mb-4" id="post-card-{{ post.pk }}">

@@ -45,17 +45,17 @@
                 </li>                             
                 <li class="nav-item"><a class="nav-link" href="/gallery">갤러리</a></li>  
                 <ul class="nav navbar-nav ml-auto">                
-                    {% if email %}
+                    {% if user.is_authenticated %}
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="download">{{ user_name }} <span class="caret"></span></a>
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="download">{{ user }} <span class="caret"></span></a>
                             <div class="dropdown-menu" aria-labelledby="download">                            
-                                <a class="dropdown-item" href="/review/custom_logout">Log out</a>
+                                <a class="dropdown-item" href="/accounts/logout">Log out</a>
                             </div>
                         </li>
                     {% else %}
                         <li class="nav-item">
-                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#loginModal">
-                                글쓰기
+                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#loginModal">
+                                Log in
                             </button>
                         </li>
                     {% endif %}
@@ -84,7 +84,7 @@
                         <a role="button" class="btn btn-outline-danger" href="{% provider_login_url 'google' %}"><i class="fab fa-google"></i>  Log in with Google</a>
                     </div>
                     <div class="col-md-6">
-                        <a role="button" class="btn btn-outline-info" href="{% url 'review:custom_login' %}"><i class="fas fa-envelope"></i>  Log in with Email</a>
+                        <a role="button" class="btn btn-outline-info" href="{% url 'account_login' %}"><i class="fas fa-envelope"></i>  Log in with Email</a>
                     </div>
                 </div>
             </div>
