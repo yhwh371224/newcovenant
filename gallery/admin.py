@@ -4,13 +4,13 @@ from .models import Gallery, Comment
 
 
 class GalleryAdmin(admin.ModelAdmin):
-    list_display = ['date', 'name', 'title', 'created']
-    search_fields = ['date', 'name']
+    list_display = ['title', 'author' ]
+    search_fields = ['title', ]
 
 
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ['Gallery', 'author', 'created_at', 'modified_at']
-    search_fields = ['author', 'created_at', 'modified_at']
+    list_display = ['author']
+    search_fields = ['author']
 
 
 class MyAdminSite(AdminSite):

@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import BulletinListView, BulletinDetailView, gallery_list, gallery_detail, MemberListView, MemberDetailView
+from .views import BulletinListView, BulletinDetailView, MemberListView, MemberDetailView
 from django.contrib.auth import views as auth_views
 from . import views
 

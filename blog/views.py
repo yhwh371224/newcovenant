@@ -3,7 +3,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect, render, get_object_or_404
 from django.views.generic import ListView, DetailView
 from django.core.paginator import Paginator
-from .models import Members, Gallery, Bulletin, Comment
+from .models import Members, Bulletin
 from .forms import BulletinForm
 from django.urls import reverse_lazy
 
@@ -33,8 +33,8 @@ class BulletinListView(ListView):
         context['form'] = BulletinForm()
         return context
 
-    def Gallery(self, request, *args, **kwargs):
-        form = BulletinForm(request.Gallery, request.FILES)
+    def bulletin(self, request, *args, **kwargs):
+        form = BulletinForm(request.bulletin, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('bulletin_list')

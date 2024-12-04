@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'blog.apps.BlogConfig',
     'basecamp.apps.BasecampConfig', 
+    'gallery.apps.GalleryConfig',
     'review.apps.ReviewConfig',
     'allauth',
     'allauth.account',

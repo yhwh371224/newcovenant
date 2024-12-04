@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from blog.models import Bulletin, Column, Members
+from blog.models import Bulletin, Members
 
 
 def index(request): return redirect('/home/')

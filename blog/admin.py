@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Members, Column, Bulletin
+from .models import Members, Bulletin
 
 
 class MembersAdmin(admin.ModelAdmin):
@@ -7,15 +7,9 @@ class MembersAdmin(admin.ModelAdmin):
     search_fields = ['english_name', 'korean_name', 'contact', 'email', 'suburb']
 
 
-class ColumnAdmin(admin.ModelAdmin):
-    list_display = ['title', 'author', 'created', 'updated']
-    search_fields = ['title', 'author', 'created', 'updated']
-
-
 class BulletinAdmin(admin.ModelAdmin):
     list_display = ('date', 'created')
 
 
 admin.site.register(Members, MembersAdmin)
-admin.site.register(Column, ColumnAdmin)
 admin.site.register(Bulletin, BulletinAdmin)
