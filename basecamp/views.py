@@ -62,10 +62,6 @@ def column(request):
     return render(request, 'basecamp/column.html')
 
 
-def gallery(request):
-    return render(request, 'basecamp/gallery.html')
-
-
 def location(request):
     return render(request, 'basecamp/location.html')
 

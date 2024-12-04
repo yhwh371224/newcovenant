@@ -8,7 +8,7 @@ import datetime
 class Gallery(models.Model):
     title = models.CharField(max_length=250)
     content = MarkdownxField()
-    head_image = models.ImageField(upload_to='blog/%Y/%m/%d/', blank=True)
+    head_image = models.ImageField(upload_to='gallery/%Y/%m/%d/', blank=True)
     created = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
 

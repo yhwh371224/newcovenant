@@ -11,6 +11,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('markdownx/', include('markdownx.urls')),
     path('blog/', include('blog.urls')),
+    path('gallery/', include('gallery.urls')),
     path('review/', include('review.urls')),
     path('', include('basecamp.urls')),
     path('accounts/', include('allauth.urls')),
