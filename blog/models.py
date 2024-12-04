@@ -4,6 +4,8 @@ from django.db import models
 from django.apps import AppConfig
 from django.urls import reverse
 from django.contrib.auth.models import User
+from markdownx.models import MarkdownxField
+from markdownx.utils import markdown
 
 
 class BlogAppConfig(AppConfig):
@@ -32,20 +34,6 @@ class Members(models.Model):
 
     def __str__(self):
         return f"{self.korean_name} ({self.english_name})"
-
-
-class Column(models.Model):
-    title = models.CharField(max_length=100)  
-    author = models.CharField(max_length=50, default='김곤주목사')  
-    content = models.TextField(blank=True)  
-    created = models.DateTimeField(auto_now_add=True)  
-    updated = models.DateTimeField(auto_now=True) 
-
-    class Meta:
-        ordering = ['-created'] 
-
-    def __str__(self):
-        return self.title
     
 
 class Bulletin(models.Model): 
@@ -54,8 +42,8 @@ class Bulletin(models.Model):
     created = models.DateTimeField(auto_now_add=True)  
 
     class Meta:
-        verbose_name = '주보'
-        verbose_name_plural = '주보들'
+        verbose_name = 'Bulletin'
+        verbose_name_plural = 'Bulletins'
         ordering = ['-date']  
 
     def __str__(self):

@@ -3,23 +3,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect, render, get_object_or_404
 from django.views.generic import ListView, DetailView
 from django.core.paginator import Paginator
-from .models import Members, Column, Bulletin
+from .models import Members, Gallery, Bulletin, Comment
 from .forms import BulletinForm
 from django.urls import reverse_lazy
-
-
-
-def column_list(request):
-    columns = Column.objects.all().order_by('-created_at')  
-    paginator = Paginator(columns, 15)  
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
-    return render(request, 'columns/column_list.html', {'page_obj': page_obj})
-
-
-def column_detail(request, pk):
-    column = get_object_or_404(Column, pk=pk)
-    return render(request, 'columns/column_detail.html', {'column': column})
 
 
 class MemberListView(ListView):
@@ -47,8 +33,8 @@ class BulletinListView(ListView):
         context['form'] = BulletinForm()
         return context
 
-    def post(self, request, *args, **kwargs):
-        form = BulletinForm(request.POST, request.FILES)
+    def Gallery(self, request, *args, **kwargs):
+        form = BulletinForm(request.Gallery, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('bulletin_list')
@@ -72,4 +58,5 @@ class BulletinUploadView(LoginRequiredMixin, CreateView):
     
     def get_login_url(self):
         return f'{super().get_login_url()}?next={self.request.path}'
+    
 
