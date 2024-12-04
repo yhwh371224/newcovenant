@@ -1,18 +1,5 @@
-import datetime
-
 from django.db import models
-from django.apps import AppConfig
-from django.urls import reverse
 from django.contrib.auth.models import User
-from markdownx.models import MarkdownxField
-from markdownx.utils import markdown
-
-
-class BlogAppConfig(AppConfig):
-    name = 'blog'
-
-    def ready(self):
-        from . import signals
 
 
 class Members(models.Model):

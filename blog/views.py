@@ -24,7 +24,7 @@ class BulletinListView(ListView):
     model = Bulletin
     template_name = 'bulletins/bulletin_list.html'
     context_object_name = 'bulletins'
-    queryset = Bulletin.objects.all().order_by('-date')[:26] 
+    queryset = Bulletin.objects.all().order_by('-date')
     paginate_by = 4 
     login_url = '/login/'
 
@@ -33,7 +33,7 @@ class BulletinListView(ListView):
         context['form'] = BulletinForm()
         return context
 
-    def bulletin(self, request, *args, **kwargs):
+    def post(self, request, *args, **kwargs):
         form = BulletinForm(request.bulletin, request.FILES)
         if form.is_valid():
             form.save()
