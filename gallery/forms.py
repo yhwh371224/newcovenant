@@ -5,7 +5,7 @@ from django import forms
 class GalleryForm(forms.ModelForm):
     class Meta:
         model = Gallery
-        fields = ('title', 'date', 'author' 'head_image')        
+        fields = ('title', 'date', 'author', 'head_image')        
     
     def __init__(self, *args, **kwargs):
         super(GalleryForm, self).__init__(*args, **kwargs)
