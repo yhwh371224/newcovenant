@@ -8,6 +8,7 @@ class Gallery(models.Model):
     date = models.DateField(blank=True, null=True)
     head_image = models.ImageField(upload_to='gallery/%Y/%m/%d/', blank=True)
     created = models.DateTimeField(auto_now_add=True)
+    author = models.CharField(max_length=100, blank=True, null=True)
     
     class Meta:
         ordering = ['-created', ]

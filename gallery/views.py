@@ -5,7 +5,6 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import Gallery
 from .forms import GalleryForm
-from blog.models import Members
 
 
 class GalleryList(ListView):
@@ -29,8 +28,6 @@ class GalleryCreate(LoginRequiredMixin, View):
     def post(self, request, *args, **kwargs):
         form = GalleryForm(request.POST)
         if form.is_valid():
-            form.instance.author = request.user.username
-            form.instance.name = request.user.username
             form.save()
             return redirect('/gallery/')
         return render(request, 'gallery/gallery_form.html', {'form': form, 'form_guide': 'Please upload your gallery'})
