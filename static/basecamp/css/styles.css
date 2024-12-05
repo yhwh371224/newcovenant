@@ -11436,3 +11436,43 @@ section#contact form#contactForm :-ms-input-placeholder {
   margin: 20px auto; /* 가운데 정렬 */
   text-align: center; /* 텍스트 가운데 정렬 */
 }
+#photo-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 한 줄에 4개 */
+  gap: 15px; /* 이미지 간 간격 */
+  justify-content: center; /* 가운데 정렬 */
+  align-items: center; /* 세로축 정렬 */
+  max-width: 100%; /* 전체 너비 제한 */
+}
+#photo-grid img {
+  max-width: 100%; /* 이미지를 컨테이너에 맞춤 */
+  height: auto; /* 비율 유지 */
+  border-radius: 8px; /* 모서리를 둥글게 */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
+  transition: transform 0.3s ease; /* 호버 효과 */
+}
+
+/* 각 이미지 컨테이너 */
+.image-container {
+  width: 100%; /* Grid 열에 맞게 설정 */
+  max-width: 200px; /* 각 이미지의 최대 너비 제한 */
+  margin: 0 auto; /* 중앙 정렬 */
+}
+
+/* 이미지 스타일 */
+.image-container img {
+  width: 100%; /* 컨테이너 너비에 맞춤 */
+  height: auto; /* 비율 유지 */
+  border-radius: 8px; /* 모서리 둥글게 */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 그림자 */
+  transition: transform 0.3s ease; /* 호버 효과 */
+}
+
+/* 호버 시 효과 */
+.image-container img:hover {
+  transform: scale(1.05); /* 확대 */
+}
+.enlarged-img {
+  width: 200%; /* 이미지 크기를 2배로 키움 */
+  height: auto; /* 비율 유지 */
+}
