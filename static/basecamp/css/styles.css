@@ -11427,3 +11427,12 @@ section#contact form#contactForm :-ms-input-placeholder {
   height: 100%;
   object-fit: cover; /* Ensures the image fits nicely */
 }
+.notice-box {
+  opacity: 0.7; /* 검정 배경색에 70% 투명도 */
+  color: white; /* 글자 색은 흰색 */
+  padding: 20px; /* 내부 여백 */
+  border-radius: 10px; /* 모서리를 둥글게 */
+  max-width: 400px; /* 박스 최대 너비 */
+  margin: 20px auto; /* 가운데 정렬 */
+  text-align: center; /* 텍스트 가운데 정렬 */
+}
