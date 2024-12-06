@@ -11172,6 +11172,12 @@ header.base_masthead {
   border-radius: 50%; /* 원 모양 */
   background-color: #ffc800;
   overflow: hidden; /* 원을 벗어나는 부분을 잘라냄 */
+
+  /* Flexbox를 사용하여 텍스트를 중앙 정렬 */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
 }
 .timeline > li .timeline-image img {
   width: 100%;
@@ -11179,9 +11185,9 @@ header.base_masthead {
   object-fit: cover !important; /* 강제로 적용 */
 }
 .timeline > li .timeline-image h4, .timeline > li .timeline-image .h4 {
-  font-size: 10px;
-  line-height: 14px;
-  margin-top: 12px;
+  font-size: 10px !important;
+  line-height: 1.2 !important;
+  margin: 0 !important;
 }
 .timeline > li.timeline-inverted > .timeline-panel {
   float: right;
