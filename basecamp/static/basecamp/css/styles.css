@@ -3757,6 +3757,9 @@ textarea.form-control-lg {
   justify-content: space-between;
 }
 .navbar-brand {
+  position: relative; /* 기준 설정 */  
+  display: inline-flex; /* 텍스트와 이미지를 나란히 배치 */
+  align-items: center; /* 수직 가운데 정렬 */
   padding-top: var(--bs-navbar-brand-padding-y);
   padding-bottom: var(--bs-navbar-brand-padding-y);
   margin-right: var(--bs-navbar-brand-margin-end);
@@ -11378,11 +11381,22 @@ section#contact form#contactForm :-ms-input-placeholder {
 }
 /* 로고 옆 텍스트 스타일 */
 .logo-text {
+  position: relative; /* 텍스트 기준점 설정 */
+  z-index: 1; /* 텍스트를 위에 배치 */
   color: #ffcc00; /* 노란색 */
   font-weight: bold;
   margin-left: 5px;
 }
-
+.favicon-img {
+  position: absolute; /* 텍스트 뒤로 겹칠 수 있도록 절대 위치 */
+  right: 65%; /* 텍스트 오른쪽으로 약간의 여백 */
+  top: 10%; /* 수직 가운데 정렬 */
+  transform: translateY(-50%, -50%) rotate(90deg) !important; /* 정확한 중앙 위치 */
+  z-index: 0; /* 텍스트 뒤로 배치 */
+  width: 50px; /* 이미지 크기 */
+  height: 50px; /* 이미지 크기 */
+  opacity: 0.7; /* 투명도 조정 (선택 사항) */
+}
 /* 헤더 환영 문구 스타일 */
 .welcome-text {
   color: #ffcc00; /* 노란색 */
