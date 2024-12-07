@@ -16,8 +16,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/home/">Home</a>
                 </li>
-                <li class="nav-item"><a class="nav-link text-info" href="/gallery/">사진첩</a></li>
-                <li class="nav-item"><a class="nav-link text-info" data-target="#loginModal">For uploading >></a></li> 
+                <li class="nav-item"><a class="nav-link text-info" href="/gallery/">사진첩</a></li>                
                 <ul class="nav navbar-nav ml-auto">                
                     {% if user.is_authenticated %}
                         <li class="nav-item dropdown">
@@ -27,6 +26,7 @@
                             </div>
                         </li>
                     {% else %}
+                        <li class="nav-item"><a class="nav-link text-info" data-target="#loginModal">For uploading >></a></li> 
                         <li class="nav-item">
                             <button type="button" class="btn btn-info" data-toggle="modal" data-target="#loginModal">
                                 Log in
