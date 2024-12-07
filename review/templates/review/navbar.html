@@ -24,8 +24,7 @@
                         <li><a class="dropdown-item" href="#words">주일설교</a></li>
                         <li><a class="dropdown-item" href="/review">목사님 칼럼</a></li>
                     </ul>
-                </li>        
-                <li class="nav-item"><a class="nav-link text-info" data-target="#loginModal">For writing >></a></li>    
+                </li>
                 <ul class="nav navbar-nav ml-auto">                
                     {% if user.is_authenticated %}
                         <li class="nav-item dropdown">
@@ -35,6 +34,7 @@
                             </div>
                         </li>
                     {% else %}
+                        <li class="nav-item"><a class="nav-link text-info" data-target="#loginModal">For writing >></a></li>    
                         <li class="nav-item">
                             <button type="button" class="btn btn-info" data-toggle="modal" data-target="#loginModal">
                                 Log in 

@@ -32,10 +32,10 @@
                 {% for p in object_list %}
                     <div class="col-md-3 mb-4">
                         <div class="card" id="post-card-{{ p.pk }}">
-                            <div class="image-container">
+                            <div class="g-image-container">
                                 {% if p.head_image %}
                                     <a href="{{ p.get_absolute_url }}">
-                                        <img class="card-img-top" src="{{ p.head_image.url }}" alt="Card image cap">
+                                        <img class="g-card-img-top" src="{{ p.head_image.url }}" alt="Card image cap">
                                     </a>
                                 {% else %}
                                     <a href="{{ p.get_absolute_url }}">
@@ -44,7 +44,7 @@
                                 {% endif %}
                             </div>
                             <div class="card-body">
-                                <h5 class="card-title">{{ p.title | striptags | truncatewords_html:8 }}</h5>
+                                <h5 class="g-card-title">{{ p.title | striptags | truncatewords_html:8 }}</h5>
                             </div>
                         </div>
                         
@@ -79,36 +79,35 @@
 
 <style>
     /* 이미지 컨테이너 스타일 */
-    .image-container {
-        width: 100%;
-        height: 200px; /* 고정된 높이 */
-        overflow: hidden; /* 넘치는 이미지를 숨김 */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #f8f9fa; /* 배경색 추가 (옵션) */
+    #subpages .g-image-container {
+    width: 100%;
+    height: 200px; /* 고정된 높이 */
+    overflow: hidden; /* 넘치는 이미지를 숨김 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f9fa; /* 배경색 추가 (옵션) */
     }
-    
+
     /* 이미지 스타일 */
-    .card-img-top {
+    #subpages .g-card-img-top {
         width: 100%;
         height: 100%;
         object-fit: cover; /* 이미지를 고정된 크기로 조정 */
     }
-    #subpages {
+    #g-subpages {
         margin-top: 10px ; /* 간격을 줄임 */
     }
-    .image-container img:hover {
+    .g-image-container img:hover {
         opacity: 0.8;
         transition: opacity 0.3s ease;
         cursor: pointer; /* 클릭 가능한 요소임을 나타냄 */
     }
-    .card-title {
+    .g-card-title {
         font-size: 1rem;  /* 기본 크기보다 작은 크기 */
     }
 
-    </style>
-    
+</style>   
 
 
 {% endblock %}

@@ -213,7 +213,7 @@ KEEP_COMMENTS_ON_MINIFYING = True
 
 LOGIN_URL = 'account_login'
 LOGIN_REDIRECT_URL = reverse_lazy('bulletin_upload')
-LOGOUT_REDIRECT_URL = reverse_lazy('bulletin_list')
+LOGOUT_REDIRECT_URL = reverse_lazy('home')
 
 CORS_ALLOWED_ORIGINS = [
     "https://suy.net.au",
