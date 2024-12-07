@@ -74,6 +74,10 @@ def worship_music(request):
     return render(request, 'basecamp/worship_music.html')
 
 
+def pdf(request):
+    return render(request, 'basecamp/pdf.html')
+
+
 # def bulletin_list(request):
 #     bulletins = Bulletin.objects.all()
 #     return render(request, 'bulletin_list.html', {'bulletins': bulletins})
