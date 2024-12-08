@@ -6,23 +6,32 @@
         <div class="text-center">
             <h3>교회 주보</h3>
         </div>
-
-        <!-- 파일 업로드 폼 -->
-        {% if user.is_authenticated %}
-        <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form.as_p }}  <!-- 폼 렌더링 -->
-            <button type="submit" class="btn btn-success">주보업로드</button>
-        </form>
-        {% else %}
-            <a href="{% url 'account_login' %}?next={% url 'bulletin_upload' %}" class="btn btn-success">주보업로드</a>
-        {% endif %}
-        <!-- 주보 목록 -->
+        <div class="row">
+            <div class="col-md-12">
+                <!-- 파일 업로드 폼 -->
+                {% if user.is_authenticated %}
+                <form method="post" enctype="multipart/form-data" class="d-flex justify-content-between align-items-center">
+                    {% csrf_token %}
+                    {{ form.as_p }}  
+                    <div>
+                        <button type="submit" class="btn btn-success">주보업로드</button>
+                    </div>
+                    <div>
+                        <button id="merge-pdfs-button" class="btn btn-primary">업로드한 주보병합</button>
+                    </div>
+                </form>
+                {% else %}
+                    <a href="{% url 'account_login' %}?next={% url 'bulletin_upload' %}" class="btn btn-success">주보업로드</a>
+                {% endif %}
+                <!-- 주보 목록 -->
+            </div>
+        </div>
+        
         <div class="bulletin-list mt-4">
             {% for bulletin in bulletins %}
                 <div class="bulletin-item">
                     <div class="bulletin-info">
-                        <p class="bulletin-date">날짜: {{ bulletin.date|date:"Y년 m월 d일" }}
+                        <p class="bulletin-date">{{ bulletin.date|date:"Y년 m월 d일" }}
                         {% if bulletin.pdf_file %}
                             <a href="{{ bulletin.pdf_file.url }}" target="_blank" class="btn-view-bulletin">&nbsp;주보 보기</a></p>
                         {% else %}
@@ -52,5 +61,20 @@
         </div>   
     </div>
 </section>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $('#merge-pdfs-button').click(function() {
+        $.ajax({
+            url: '/merge-pdfs/',
+            method: 'GET',
+            success: function(response) {
+                $('#merge-status').text(response.message);
+            },
+            error: function() {
+                $('#merge-status').text('병합 작업 중 오류가 발생했습니다.');
+            }
+        });
+    });
+</script>
 {% endblock %}
 

@@ -6,6 +6,7 @@ from .models import Gallery
 class GalleryAdmin(admin.ModelAdmin):
     list_display = ['title', 'date']
     search_fields = ['title', 'date']
+    ordering = ['-created']
 
 
 class MyAdminSite(AdminSite):

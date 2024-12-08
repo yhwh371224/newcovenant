@@ -11,4 +11,5 @@ urlpatterns = [
     path('members/', MemberListView.as_view(), name='member_list'),
     path('members/<int:pk>/', MemberDetailView.as_view(), name='member_detail'),
     path('upload/', views.BulletinUploadView.as_view(), name='bulletin_upload'),
+    path('merge-pdfs/', views.merge_latest_pdfs, name='merge_pdfs'),
 ]

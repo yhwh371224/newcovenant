@@ -31,7 +31,7 @@ class Bulletin(models.Model):
     class Meta:
         verbose_name = 'Bulletin'
         verbose_name_plural = 'Bulletins'
-        ordering = ['-date']  
+        ordering = ['-created']  
 
     def __str__(self):
         return f"{self.date}"

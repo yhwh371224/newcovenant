@@ -17,7 +17,7 @@ class Post(models.Model):
         ordering = ['-created']
 
     def __str__(self):
-        return str(self.author)
+        return str(self.title)
 
     def get_absolute_url(self):
         return '/review/{}/'.format(self.pk)
@@ -35,6 +35,9 @@ class Comment(models.Model):
     author = models.CharField(max_length=100, blank=True, null=True)    
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['-created_at']
 
     def get_markdown_content(self):
         return markdown(self.text)
