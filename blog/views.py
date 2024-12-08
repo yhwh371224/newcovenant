@@ -1,18 +1,48 @@
 import os
+import PyPDF2
 
-from django.utils.dateparse import parse_datetime
-from django.http import JsonResponse
+from django.http import HttpResponse
 from django.views.generic.edit import CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import redirect, render, get_object_or_404
+from django.shortcuts import redirect, render
 from django.views.generic import ListView, DetailView
-from django.core.paginator import Paginator
 from django.urls import reverse_lazy
+from django.conf import settings
 
 from .models import Members, Bulletin
 from .forms import BulletinForm
-from PyPDF2 import PdfMerger
-from datetime import datetime
+
+
+def merge_latest_pdfs(self, request):
+        # 최신 두 개의 Bulletin 객체를 가져옵니다.
+        bulletins = Bulletin.objects.all().order_by('-created')[:2]
+
+        if len(bulletins) < 2:
+            return HttpResponse("주보가 두 개 이상 등록되어야 합니다.", status=400)
+
+        merger = PyPDF2.PdfMerger()
+
+        for bulletin in bulletins:
+            if bulletin.pdf_file:
+                file_path = bulletin.pdf_file.path
+                print(f"파일 경로: {file_path}")  
+                merger.append(file_path)
+
+        merged_filename = f"{bulletins[0].date}_merged.pdf"
+
+        merged_file_path = os.path.join(settings.MEDIA_ROOT, 'bulletins', merged_filename)
+        print(f"병합된 PDF 파일 경로: {merged_file_path}")
+
+        with open(merged_file_path, 'wb') as merged_file:
+            merger.write(merged_file)
+
+        merged_bulletin = Bulletin.objects.create(
+            date=bulletins[0].date,  
+            pdf_file=f'bulletins/{merged_filename}' 
+        )
+
+        bulletins = Bulletin.objects.all().order_by('-created')  
+        return render(request, 'blog/bulletin_list.html', {'bulletins': bulletins})
 
 
 class MemberListView(ListView):
@@ -67,41 +97,4 @@ class BulletinUploadView(LoginRequiredMixin, CreateView):
     
     def get_login_url(self):
         return f'{super().get_login_url()}?next={self.request.path}'   
-
-
-
-def merge_latest_pdfs(request):
-    bulletins_folder = "_media/bulletins"
-    pdf_files = [os.path.join(bulletins_folder, f) for f in os.listdir(bulletins_folder) if f.endswith('.pdf')]
-
-    if len(pdf_files) < 2:
-        return JsonResponse({"status": "error", "message": "병합할 PDF 파일이 충분하지 않습니다. 최소 2개의 PDF 파일이 필요합니다."})
-
-    pdf_files.sort(key=lambda x: os.path.getctime(x), reverse=True)
-    latest_files = pdf_files[:2]
-
-    dates = []
-    for pdf in latest_files:
-        filename = os.path.basename(pdf)
-        try:
-            date_str = filename.split('_')[0]
-            parsed_date = parse_datetime(date_str) or datetime.strptime(date_str, '%Y-%m-%d')
-            dates.append(parsed_date)
-        except Exception as e:
-            return JsonResponse({"status": "error", "message": f"날짜 파싱 오류: {filename}, {str(e)}"})
-
-    latest_date = max(dates)
-    merged_filename = latest_date.strftime('%Y-%m-%d') + " 주보 보기.pdf"
-    merged_file_path = os.path.join(bulletins_folder, merged_filename)
-
-    merger = PdfMerger()
-    for pdf in latest_files:
-        merger.append(pdf)
-    merger.write(merged_file_path)
-    merger.close()
-
-    for pdf in latest_files:
-        os.remove(pdf)
-
-    return JsonResponse({"status": "success", "message": f"병합 완료: {merged_file_path}"})
 
