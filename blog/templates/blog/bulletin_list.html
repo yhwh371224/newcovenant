@@ -6,26 +6,24 @@
         <div class="text-center">
             <h3>교회 주보</h3>
         </div>
-        <div class="row">
-            <div class="col-md-12">
-                <!-- 파일 업로드 폼 -->
-                {% if user.is_authenticated %}
-                <form method="post" enctype="multipart/form-data" class="d-flex justify-content-between align-items-center">
-                    {% csrf_token %}
-                    {{ form.as_p }}  
-                    <div>
-                        <button type="submit" class="btn btn-success">주보업로드</button>
-                    </div>
-                    <div>
-                        <button id="merge-pdfs-button" class="btn btn-primary">업로드한 주보병합</button>
-                    </div>
-                </form>
-                {% else %}
-                    <a href="{% url 'account_login' %}?next={% url 'bulletin_upload' %}" class="btn btn-success">주보업로드</a>
-                {% endif %}
-                <!-- 주보 목록 -->
-            </div>
-        </div>
+        <div>      
+            <!-- 파일 업로드 폼 -->
+            {% if user.is_authenticated %}
+            <div>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}  
+                <div class="d-flex justify-content-between">
+                    <button type="submit" class="btn btn-success">주보업로드</button>
+                    <button id="merge-pdfs-button" class="btn btn-danger">업로드한 주보병합</button>
+                </div>
+            </form>
+            {% else %}
+                <a href="{% url 'account_login' %}?next={% url 'bulletin_upload' %}" class="btn btn-success">주보업로드</a>
+            {% endif %}
+            <!-- 주보 목록 -->
+        </div>              
+
         
         <div class="bulletin-list mt-4">
             {% for bulletin in bulletins %}
