@@ -1,7 +1,7 @@
 import os
 import PyPDF2
 
-from django.http import HttpResponse
+from django.http import JsonResponse
 from django.views.generic.edit import CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect, render
@@ -13,12 +13,12 @@ from .models import Members, Bulletin
 from .forms import BulletinForm
 
 
-def merge_latest_pdfs(self, request):
+def merge_latest_pdfs(request):
         # 최신 두 개의 Bulletin 객체를 가져옵니다.
         bulletins = Bulletin.objects.all().order_by('-created')[:2]
 
         if len(bulletins) < 2:
-            return HttpResponse("주보가 두 개 이상 등록되어야 합니다.", status=400)
+            return JsonResponse("주보가 두 개 이상 등록되어야 합니다.", status=400)
 
         merger = PyPDF2.PdfMerger()
 
@@ -29,9 +29,7 @@ def merge_latest_pdfs(self, request):
                 merger.append(file_path)
 
         merged_filename = f"{bulletins[0].date}_merged.pdf"
-
         merged_file_path = os.path.join(settings.MEDIA_ROOT, 'bulletins', merged_filename)
-        print(f"병합된 PDF 파일 경로: {merged_file_path}")
 
         with open(merged_file_path, 'wb') as merged_file:
             merger.write(merged_file)
@@ -41,8 +39,16 @@ def merge_latest_pdfs(self, request):
             pdf_file=f'bulletins/{merged_filename}' 
         )
 
-        bulletins = Bulletin.objects.all().order_by('-created')  
-        return render(request, 'blog/bulletin_list.html', {'bulletins': bulletins})
+        updated_bulletins = Bulletin.objects.all().order_by('-created')  
+
+        bulletin_data = [
+            {
+                'date': bulletin.date,
+                'pdf_file': bulletin.pdf_file.url
+            } for bulletin in updated_bulletins
+        ]
+
+        return JsonResponse({"message": "주보 병합이 완료되었습니다.", "bulletins": bulletin_data})
 
 
 class MemberListView(ListView):

@@ -61,18 +61,26 @@
 </section>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
-    $('#merge-pdfs-button').click(function() {
+    $('#merge-pdfs-button').click(function(e) {
+        e.preventDefault();  // Prevents the default form submission
+
         $.ajax({
-            url: '/merge-pdfs/',
+            url: '{% url "merge_pdfs" %}',  // Django template tag for the correct URL
             method: 'GET',
             success: function(response) {
-                $('#merge-status').text(response.message);
+                if (response.message) {
+                    // If the response contains a success message
+                    alert(response.message);
+                    location.reload();  // Reload the page to reflect changes
+                }
             },
-            error: function() {
-                $('#merge-status').text('병합 작업 중 오류가 발생했습니다.');
+            error: function(xhr, status, error) {
+                // If the request fails, show the error message
+                alert('병합 작업 중 오류가 발생했습니다. ' + (xhr.responseJSON.error || error));
             }
         });
     });
 </script>
+
 {% endblock %}
 
