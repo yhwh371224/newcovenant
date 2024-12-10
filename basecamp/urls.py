@@ -1,5 +1,7 @@
 from django.urls import path
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 app_name = "basecamp"
 
@@ -12,8 +14,9 @@ urlpatterns = [
     path('workers/', views.workers, name='workers'), 
     path('column/', views.column, name='column'),
     path('location/', views.location, name='location'),
-    path('contact_list/', views.contact_list, name='contact_list'),
     path('worship_music/', views.worship_music, name='worship_music'),
-]
+    path('protected/contact_list', views.serve_pdf, name='contact_list'), 
+] 
 
+urlpatterns += static('/media/', document_root=settings.MEDIA_ROOT)
 
