@@ -9,21 +9,8 @@ def index(request): return redirect('/home/')
 def home(request): return render(request, 'basecamp/home.html')
 
 
-def about_us(request): return render(request, 'basecamp/about_us.html')
-
-
-@login_required
-def confirmation(request): 
-    return render(request, 'basecamp/confirmation.html')
-
-
-def information(request):     
-    return render(request, 'basecamp/information.html')
-
-
 def introduction(request):     
     return render(request, 'basecamp/introduction.html')
-
 
 
 def bulletin_list(request):     
@@ -32,22 +19,6 @@ def bulletin_list(request):
 
 def meetings(request):     
     return render(request, 'basecamp/meetings.html')
-
-
-def meeting_point(request): 
-    return render(request, 'basecamp/meeting_point.html')
-
-
-def payment_options(request): 
-    return render(request, 'basecamp/payment_options.html')
-
-
-def payonline(request):     
-    return render(request, 'basecamp/payonline.html')
-
-
-def payonline_stripe(request):     
-    return render(request, 'basecamp/payonline_stripe.html')
 
 
 def sitemap(request): 
@@ -66,20 +37,13 @@ def location(request):
     return render(request, 'basecamp/location.html')
 
 
-def pickup(request):
-    return render(request, 'basecamp/pickup.html')
+def contact_list(request):
+    return render(request, 'basecamp/contact_list.html')
 
 
 def worship_music(request):
     return render(request, 'basecamp/worship_music.html')
 
 
-def pdf(request):
-    return render(request, 'basecamp/pdf.html')
-
-
-# def bulletin_list(request):
-#     bulletins = Bulletin.objects.all()
-#     return render(request, 'bulletin_list.html', {'bulletins': bulletins})
 
 
